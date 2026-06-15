@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 入口生态下的平台、OTA、携程、去哪儿四方视角</title>
+  <style>
+    :root {
+      --green: #16a34a;
+      --dark: #111827;
+      --gray: #6b7280;
+      --light: #f7f8fa;
+      --border: #e5e7eb;
+      --card: #ffffff;
+      --red: #dc2626;
+      --red-bg: #fff1f2;
+      --orange-bg: #fff7ed;
+      --orange-border: #fed7aa;
+    }
+
+    body {
+      margin: 0;
+      background: var(--light);
+      color: var(--dark);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.85;
+    }
+
+    .page {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 48px 20px 72px;
+    }
+
+    .cover {
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 38px 34px;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.06);
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 34px;
+      line-height: 1.25;
+      margin: 0 0 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      font-size: 17px;
+      color: #374151;
+      margin: 0;
+    }
+
+    .part-title {
+      margin: 34px 0 16px;
+      padding: 22px 26px;
+      border-radius: 20px;
+      background: #111827;
+      color: white;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+    }
+
+    .part-title h2 {
+      color: white;
+      margin: 0 0 6px;
+      font-size: 26px;
+    }
+
+    .part-title p {
+      color: #d1d5db;
+      margin: 0;
+    }
+
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 28px;
+      margin: 20px 0;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+    }
+
+    .risk-section {
+      background: var(--orange-bg);
+      border: 1px solid var(--orange-border);
+      border-radius: 20px;
+      padding: 28px 28px;
+      margin: 20px 0;
+      box-shadow: 0 8px 24px rgba(124, 45, 18, 0.05);
+    }
+
+    h2 {
+      font-size: 23px;
+      line-height: 1.35;
+      margin: 0 0 18px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin: 24px 0 10px;
+    }
+
+    p {
+      margin: 0 0 16px;
+      font-size: 16px;
+    }
+
+    .green {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .red {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .callout {
+      background: #f0fdf4;
+      border-left: 5px solid var(--green);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+
+    .risk-callout {
+      background: var(--red-bg);
+      border-left: 5px solid var(--red);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin: 20px 0;
+    }
+
+    .callout p,
+    .risk-callout p {
+      margin-bottom: 8px;
+    }
+
+    .framework {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 20px 0 16px;
+    }
+
+    .framework.two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .box {
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .box-title {
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .matrix {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 20px;
+      font-size: 15px;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    .matrix th,
+    .matrix td {
+      border: 1px solid var(--border);
+      padding: 12px 14px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .matrix th {
+      background: #f3f4f6;
+      font-weight: 700;
+    }
+
+    .footer {
+      color: var(--gray);
+      font-size: 13px;
+      text-align: center;
+      margin-top: 28px;
+    }
+
+    @media (max-width: 720px) {
+      .framework, .framework.two {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .section, .risk-section, .cover, .part-title {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="cover">
+      <div class="eyebrow">Strategy Memo｜AI Agent × OTA</div>
+      <h1>AI 入口生态下的平台、OTA、携程、去哪儿四方视角</h1>
+      <p class="subtitle">这不是一次普通渠道合作。它是 AI 入口、OTA 总体、携程、去哪儿四类角色在新交易链路里的重新定位。</p>
+    </section>
+
+    <section class="section">
+      <h2>总判断：酒店预订链路会被 AI 入口重新拆分</h2>
+      <p>从微信和豆包现在的动作看，一个明显趋势正在出现：用户的旅行需求会先进入 AI 入口，再被分发给后面的供应商。</p>
+      <p>过去用户先打开 OTA，再搜索、筛选、比价、下单。未来用户可能先在微信或豆包里说一句话，比如“帮我找淞虹路地铁站附近的酒店”。</p>
+      <p>这时，AI 入口会先理解需求，再决定调度谁。携程、去哪儿、同程、直连酒店、小商家，都可能变成后面的供给节点。</p>
+      <div class="callout">
+        <p><span class="green">核心判断：AI 入口拿走的是用户需求的第一现场。OTA 面对的不是新渠道，而是交易链路的重新分工。</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>四方角色定位一览</h2>
+      <table class="matrix">
+        <tr>
+          <th>视角</th>
+          <th>核心判断</th>
+          <th>最大目标</th>
+          <th>最大风险</th>
+          <th>关键动作</th>
+        </tr>
+        <tr>
+          <td>平台视角</td>
+          <td>用户需求会从 App 前移到 AI 入口。</td>
+          <td>成为统一入口，调度所有供应商。</td>
+          <td>推荐逻辑不公正，损害模型信任。</td>
+          <td>接入供给，标准化体验，逐步掌握推荐和比价。</td>
+        </tr>
+        <tr>
+          <td>OTA 视角</td>
+          <td>必须接入，但不能把它当普通渠道。</td>
+          <td>守住用户、利润、服务和会员体系。</td>
+          <td>无痛比价压低利润，并外溢到 App 主站。</td>
+          <td>有限接入、会员防守、差异化报价、服务品牌化。</td>
+        </tr>
+        <tr>
+          <td>携程视角</td>
+          <td>不能只做 AI 入口里的推荐供应商。</td>
+          <td>把高信任交易做成可识别的品牌资产。</td>
+          <td>推荐做得很好，但成交被低价平台拿走。</td>
+          <td>高服务、强保障、会员权益、AI 营销平台。</td>
+        </tr>
+        <tr>
+          <td>去哪儿视角</td>
+          <td>AI 比价会放大低价定位。</td>
+          <td>成为 AI 入口里的低价默认选项。</td>
+          <td>低价卷到零利润，服务心智被削弱。</td>
+          <td>低价打穿、效率支撑、长尾供给、服务兜底。</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="part-title">
+      <h2>第一部分：平台视角</h2>
+      <p>微信、豆包为什么要做，以及它们会怎么做。</p>
+    </section>
+
+    <section class="section">
+      <h2>一、平台的判断：用户会先表达需求，再选择服务商</h2>
+      <p>平台看到的趋势是，用户越来越不愿意在多个 App 之间切换。用户更想直接表达需求，然后让系统给出答案。</p>
+      <p>在酒店预订里，这意味着用户不一定先打开携程或去哪儿。用户可能先在微信、豆包这样的入口里说需求。入口拿到需求以后，再去调度后面的 OTA 和酒店供给。</p>
+      <div class="callout">
+        <p><span class="green">平台真正要抢的不是某一笔酒店订单，而是用户表达需求的第一入口。</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>二、平台的目标：做统一入口和供给调度系统</h2>
+      <p>豆包的路径更直接。它希望各个厂商把 API 接进来，用户如何选择、如何交易、订单如何闭环，尽量都留在豆包体系里。商家只负责供给、履约和服务。</p>
+      <p>微信的方式看起来温和一点。用户在微信里输入旅行需求，微信把需求传给某个商家，比如携程。携程返回推荐列表，再以小程序卡片的形式留在对话里。用户点击后进入小程序继续交易。</p>
+      <p>但本质上，两者方向接近。豆包更强闭环，微信更生态化。一个更像直接接管交易链路，一个更像先把交易链路嵌进微信生态。</p>
+      <div class="callout">
+        <p><span class="green">平台的目标不是帮 OTA 导流，而是让 OTA 变成可调度的供给节点。</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>三、平台的策略：先保留商家能力，再逐步收推荐权</h2>
+      <p>平台不会一开始就替代 OTA。更现实的路径是，先让 OTA 接入，先让 OTA 返回推荐结果，先让交易在小程序或 API 链路里跑起来。</p>
+      <p>这个过程表面上是合作，实质上也是平台学习供给、价格、点击、转化和服务稳定性的过程。时间越长，平台越懂用户，也越懂供给。</p>
+      <p>到了一定阶段，平台会自然提出一个问题：既然我更懂用户，也能同时比较多个供应商，为什么最终推荐还要交给某一个 OTA？</p>
+      <div class="callout">
+        <p><span class="green">平台策略不是立刻替代 OTA，而是先接入，再学习，再标准化，最后逐步掌握推荐权和比价权。</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>四、平台的产品能力：无痛比价</h2>
+      <p>从用户体验看，平台最自然会做的事就是比价。用户只说出需求，平台同时问携程、去哪儿、同程、直连酒店和其他供应商，然后返回更便宜或更合适的选项。</p>
+      <p>这对平台几乎是零成本增值。它能提升用户体验，也能强化入口价值。</p>
+      <p>但平台也有约束。大模型推荐必须讲逻辑。不能像传统搜索广告一样，谁出价高就排谁前面。否则模型的中立、客观、可信会被破坏。</p>
+      <div class="callout">
+        <p><span class="green">平台最大的商业化张力是：既想拿推荐权和营销费，又不能让推荐看起来像广告。</span></p>
+      </div>
+    </section>
+
+    <section class="part-title">
+      <h2>第二部分：OTA 视角</h2>
+      <p>作为一个行业角色，OTA 面临的共同判断、挑战和策略。</p>
+    </section>
+
+    <section class="section">
+      <h2>一、OTA 的判断：一定要接，但不能天真接</h2>
+      <p>OTA 不能拒绝 AI 入口。因为只有接入，才能看到用户行为怎么变化，才能知道流量、转化和价格会怎么演化。</p>
+      <p>但 OTA 也不能把这件事当成普通渠道合作。因为接入之后，平台会逐步拿到用户需求、点击行为、价格反馈和交易转化。这个过程也是能力外流。</p>
+      <div class="callout">
+        <p><span class="green">OTA 的正确判断是：必须接入，但要按战略实验来接，而不是按普通渠道来接。</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>二、OTA 的挑战：三种价值被拆开</h2>
+      <p>过去 OTA 对商家有三种价值。第一是流量入口价值。第二是流量分配价值。第三是服务保障价值。</p>
+      <p>AI 入口出现后，这三种价值会被拆开。用户需求源头可能被平台拿走。推荐权短期可能留给 OTA，但长期会被平台学习。客服、售后、退改签这些最麻烦的事情，却仍然可能留给 OTA。</p>
+      <div class="callout">
+        <p><span class="green">最差的结构是：流量源头不属于你，推荐权逐渐不属于你，利润被比价压掉，但服务成本还留给你。</span></p>
+      </div>
+    </section>
+
+    <section class="risk-section">
+      <h2>三、OTA 的最大风险：比价不只是渠道利润问题，而是 App 主站价格体系问题</h2>
+      <p>AI 入口最危险的能力，是无痛比价。只要 OTA 把数据给到入口，入口就会自然帮助用户比较不同平台的价格。</p>
+      <p>这对用户是好事，对入口也是好事。但对 OTA 来说，它会把价格竞争变成系统默认能力。用户不需要主动打开多个 App，入口会自动完成比价。</p>
+      <p>更关键的是，这个风险不会只停留在微信、豆包这个渠道。如果 AI 入口开始打价格战，OTA 很难只在这个入口降价，而保持 App 主站价格不变。</p>
+      <p>因为用户一旦发现微信、豆包更便宜，就会从 App 流失到 AI 入口。AI 入口越便宜，用户越愿意去那里比价和成交。用户越往 AI 入口迁移，入口的低价心智越强。</p>
+      <p>这时 OTA 会被迫选择：不跟价，App 用户会流失到微信、豆包；跟价，App 主站价格也会下来，整体收入和利润都会被影响。</p>
+      <div class="risk-callout">
+        <p><span class="red">关键判断：AI 入口的价格战不是单渠道问题，而是全平台价格锚问题。</span></p>
+      </div>
+      <div class="risk-callout">
+        <p><span class="red">真正的损失不只是 AI 入口这个渠道的毛利，而是它会反向压低 App 主站价格体系，影响整个收入盘子。</span></p>
+      </div>
+      <p>这也是最难取舍的地方。OTA 如果不打低价，会丢用户。OTA 如果打低价，会伤全盘。比价的风险不在于短期让利，而在于它可能重新定义用户对价格的预期。</p>
+    </section>
+
+    <section class="section">
+      <h2>四、OTA 的策略：有限接入，会员防守，服务品牌化</h2>
+      <p>OTA 不能简单拒绝，也不能无保留投入。更合理的策略，是有限接入、快速实验、控制核心能力外流。</p>
+      <div class="framework">
+        <div class="box">
+          <div class="box-title">有限接入</div>
+          <p>先接入看数据，但不要一开始就把最完整的推荐、会员和交易策略全部交出去。</p>
+        </div>
+        <div class="box">
+          <div class="box-title">会员防守</div>
+          <p>让老客、高等级会员在价格、服务、保障上有真实优势，减少被外部低价入口带走。</p>
+        </div>
+        <div class="box">
+          <div class="box-title">服务品牌化</div>
+          <p>价格被打穿以后，服务差异会更明显。售后、退改、异常处理要做到头部水平。</p>
+        </div>
+      </div>
+      <p><span class="green">OTA 的行业级策略，不是把推荐卡片做得更漂亮，而是守住用户成交理由，控制价格外溢风险。</span></p>
+    </section>
+
+    <section class="section">
+      <h2>五、OTA 的机会：从交易平台走向 AI 营销平台</h2>
+      <p>交易本身会越来越薄。单纯交易费和服务费，可能只能支撑很有限的利润。真正有想象力的地方，是营销费。</p>
+      <p>未来酒店会关心一个新问题：我如何被大模型理解？我如何被大模型推荐？我的位置、房型、服务、亲子、商务、交通，如何变成模型的推荐理由？</p>
+      <p>OTA 可以从交易平台往前走一步，帮助商家做供给结构化、内容标签、服务承诺、场景表达和 AI 推荐优化。</p>
+      <div class="callout">
+        <p><span class="green">突破纯交易比价的机会，不是再多赚一点交易费，而是建立面向大模型的营销平台能力。</span></p>
+      </div>
+    </section>
+
+    <section class="part-title">
+      <h2>第三部分：携程视角</h2>
+      <p>不要重复 OTA 共性问题，重点看携程自己的定位和打法。</p>
+    </section>
+
+    <section class="section">
+      <h2>一、携程的核心定位：高信任交易平台</h2>
+      <p>携程不能把自己降级为 AI 入口里的推荐供应商。携程真正的价值，不只是告诉用户哪家酒店好，而是让用户相信，在携程订更稳、更可靠、更有保障。</p>
+      <p>当 AI 入口可以比价后，携程更需要把自己的优势从“信息和推荐”转向“信任和服务”。</p>
+      <div class="callout">
+        <p><span class="green">携程的核心不是低价第一，而是高信任成交第一。</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>二、携程的主要挑战：内容和推荐可能变成给别人种草</h2>
+      <p>携程当然可以做更好的交互。比如更好的卡片，更丰富的静态信息，更完整的行程规划，更像顾问一样的信息决策。</p>
+      <p>但携程需要警惕：如果推荐做得越好，用户越知道哪家酒店值得住，但最后被入口带去更便宜的平台成交，携程就承担了种草成本，却没有拿到交易收益。</p>
+      <p>这不是说携程不该做推荐体验，而是不能把主要资源都压在 AI 入口里的前端推荐体验上。</p>
+      <div class="callout">
+        <p><span class="green">携程不能只做“更会推荐的携程”，还要做“用户更愿意在这里成交的携程”。</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>三、携程的机会：服务品牌化和会员权益显性化</h2>
+      <p>价格越来越透明以后，用户会重新问一个问题：谁更靠谱？谁能兜底？谁能处理异常？谁的售后体验更稳定？</p>
+      <p>这正是携程应该放大的地方。服务不能只是后台能力，要变成用户看得见、理解得了、愿意为之留下来的前台资产。</p>
+      <p>会员也一样。会员不能只是等级和积分，而要变成真实的价格优势、服务优先权、保障权益和专属处理能力。</p>
+      <div class="callout">
+        <p><span class="green">携程要把服务和会员从运营能力，升级成用户决策时能感知的品牌理由。</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>四、携程的进攻方向：AI 营销平台</h2>
+      <p>携程的长期机会，是帮助酒店在大模型时代被更好地理解和推荐。</p>
+      <p>酒店不是标准品。不同用户关心的点不一样。亲子用户看儿童设施，商务用户看交通效率，度假用户看环境和体验，临时入住用户看距离和确定性。</p>
+      <p>携程可以把这些信息结构化，变成大模型可以理解的标签、内容、服务承诺和推荐理由。</p>
+      <div class="callout">
+        <p><span class="green">携程真正的进攻机会，是从“帮酒店成交”升级为“帮酒店被 AI 正确推荐”。</span></p>
+      </div>
+    </section>
+
+    <section class="part-title">
+      <h2>第四部分：去哪儿视角</h2>
+      <p>不要重复 OTA 共性问题，重点看去哪儿的低价定位如何被 AI 入口放大。</p>
+    </section>
+
+    <section class="section">
+      <h2>一、去哪儿的核心定位：低价效率平台</h2>
+      <p>去哪儿的心智是低价。AI 入口出现后，这个心智可能会被放大，而不是被削弱。</p>
+      <p>因为 AI 入口最容易比较、最容易解释、最容易让用户感知的变量，就是价格。服务、品牌、体验都需要解释，但价格低是直接可验证的。</p>
+      <div class="callout">
+        <p><span class="green">去哪儿的机会，是把低价心智变成 AI 入口里的默认推荐理由。</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>二、去哪儿的主要挑战：低价会卷到极限</h2>
+      <p>低价心智被放大，也意味着低价竞争会更残酷。</p>
+      <p>如果去哪儿想在 AI 入口里成为价格第一，就要接受阶段性低利润，甚至部分场景接近零利润。这个问题不是简单促销，而是博弈论问题。</p>
+      <p>谁能亏得起，谁能亏得久，谁能在低价中留住用户，谁能把低价转化成长期资产，谁才有可能赢。</p>
+      <div class="callout">
+        <p><span class="green">去哪儿要打低价，但不能只靠补贴打低价，必须靠系统效率支撑低价。</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>三、去哪儿的机会：长尾供给和直连供给</h2>
+      <p>AI 入口未来可能会引入更多小商家、直连酒店和品牌商家。去哪儿如果能更快组织低价供给，就有机会在入口侧拿到更多曝光。</p>
+      <p>这类供给不一定适合高服务、高保障体系，但很适合低价、长尾、效率型平台。</p>
+      <p>去哪儿可以强化直连酒店、小商家、长尾库存和动态价格能力，让自己在 AI 比价池里更容易成为低价选项。</p>
+      <div class="callout">
+        <p><span class="green">去哪儿的结构性机会，是把长尾供给和低价效率，变成 AI 入口比价池里的优势。</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>四、去哪儿的底线：低价不能等于低服务</h2>
+      <p>低价能带来点击，但不一定带来长期信任。酒店不是完全标准品，用户仍然关心入住是否顺利、售后是否靠谱、退改是否方便。</p>
+      <p>如果去哪儿只强化低价，而服务体验跟不上，用户可能在 AI 入口里被吸引过来，但出了问题之后又回到携程。</p>
+      <p>所以去哪儿需要有服务兜底。不是把服务做成携程式高服务，而是要保证低价用户不形成“便宜但不稳”的心智。</p>
+      <div class="callout">
+        <p><span class="green">去哪儿的底线是：可以便宜，但不能让用户觉得不靠谱。</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>规模判断：AI 入口会变大，但不会马上替代 App</h2>
+      <p>这件事会变大，但不会立刻吞掉 App。它更像小程序当年的演进。小程序没有终结 App，但创造了新的入口和营销机制。</p>
+      <p>AI 入口未来可能比小程序更大，两年内可能做到 20% 到 30% 的交易占比，但大概率仍有 70% 留在 App。</p>
+      <p>不过，这个比例会继续往前走。AI 入口的占比会越来越高，这是不可逆的。</p>
+      <div class="callout">
+        <p><span class="green">趋势不可逆，但时间还比较长。现在要焦虑，但更要抓住窗口期设计打法。</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>最终结论</h2>
+      <div class="callout">
+        <p><span class="green">平台视角：核心是拿到用户需求入口，再逐步掌握推荐权、比价权和商业化权。</span></p>
+      </div>
+      <div class="callout">
+        <p><span class="green">OTA 视角：核心是有限接入，同时控制比价对 App 主站价格体系的外溢风险。</span></p>
+      </div>
+      <div class="callout">
+        <p><span class="green">携程视角：核心是把高信任交易、服务品牌化和会员权益做成 AI 入口也能识别的推荐理由。</span></p>
+      </div>
+      <div class="callout">
+        <p><span class="green">去哪儿视角：核心是利用 AI 比价放大低价心智，但必须用效率和服务兜底支撑低价。</span></p>
+      </div>
+      <div class="callout">
+        <p><span class="green">一句话总结：平台重构入口，OTA 控制外溢，携程重构信任，去哪儿重构低价效率。</span></p>
+      </div>
+    </section>
+
+    <div class="footer">
+      整理版本：从最新会议转录重新生成｜结构：平台视角 + OTA 视角 + 携程视角 + 去哪儿视角｜风格：段落式短句口语化 + 咨询式 memo
+    </div>
+  </main>
+</body>
+</html>
