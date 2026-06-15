@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大模型入口生态对 OTA 的影响判断 — 2026-06-12</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:#f7f6f3;color:#1a1a18;padding:48px 24px;font-size:15px;line-height:1.95}
+.doc{max-width:800px;margin:0 auto;background:#fff;border-radius:12px;border:1px solid rgba(0,0,0,0.1);padding:44px 52px}
+.doc-header{margin-bottom:36px;padding-bottom:20px;border-bottom:2px solid rgba(0,0,0,0.08)}
+.doc-header h1{font-size:21px;font-weight:700;margin-bottom:5px;color:#1a1a18}
+.doc-header .meta{font-size:13px;color:#6b6b66}
+.mnp-module{margin-bottom:36px}
+.mnp-module-title{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#b4b2a9;padding-bottom:9px;margin-bottom:16px;border-bottom:2px solid rgba(0,0,0,0.12)}
+.mnp-perspective{padding:20px 24px;border:0.5px solid rgba(0,0,0,0.1);background:#f9f8f6}
+.mnp-perspective:first-of-type{border-radius:8px 8px 0 0}
+.mnp-perspective:last-of-type{border-radius:0 0 8px 8px}
+.mnp-perspective:only-of-type{border-radius:8px}
+.mnp-perspective+.mnp-perspective{border-top:2px solid rgba(0,0,0,0.13);margin-top:-1px}
+.mnp-perspective-header{display:flex;align-items:center;gap:8px;margin-bottom:14px;padding-bottom:10px;border-bottom:0.5px solid rgba(0,0,0,0.08)}
+.mnp-perspective-title{font-size:14px;font-weight:600;color:#1a1a18}
+.badge{display:inline-flex;align-items:center;padding:2px 9px;border-radius:4px;font-size:11px;font-weight:600;letter-spacing:.01em}
+.badge-blue  {background:#E6F1FB;color:#0C447C;border:0.5px solid #85B7EB}
+.badge-green {background:#EAF3DE;color:#27500A;border:0.5px solid #97C459}
+.badge-purple{background:#EEEDFE;color:#3C3489;border:0.5px solid #AFA9EC}
+.badge-orange{background:#FAEEDA;color:#633806;border:0.5px solid #FAC775}
+.badge-gray  {background:#F1EFE8;color:#444441;border:0.5px solid #B4B2A9}
+.mnp-sub{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#b4b2a9;margin:16px 0 7px}
+.mnp-sub:first-child{margin-top:0}
+p{font-size:14px;line-height:1.95;margin-bottom:7px;color:#1a1a18}
+.mnp-perspective p{line-height:1.85}
+ul{list-style:none;padding:0;margin-bottom:10px}
+li{font-size:14px;line-height:1.95;padding:2px 0 2px 16px;position:relative;color:#1a1a18}
+.mnp-perspective li{line-height:1.85}
+li::before{content:'·';position:absolute;left:4px;color:#b4b2a9;font-weight:800}
+.hl-green{color:#3B6D11;font-weight:500}
+.hl-red  {color:#A32D2D;font-weight:500}
+.hl-blue {color:#185FA5;font-weight:500}
+.doc-footer{margin-top:48px;padding-top:16px;border-top:1px solid rgba(0,0,0,0.07);font-size:12px;color:#b4b2a9;text-align:right}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<div class="doc-header">
+  <h1>大模型入口生态对 OTA 的影响判断</h1>
+  <div class="meta">2026-06-12 &nbsp;·&nbsp; 陈刚</div>
+</div>
+
+<!-- ① 背景判断 -->
+<div class="mnp-module">
+  <div class="mnp-module-title">① 背景判断</div>
+
+  <p>微信正在构建以自身为统一入口的生态。</p>
+  <p>豆包去年今年在做同一件事。</p>
+  <p><span class="hl-green">大模型 AI 应用落地后，「统一入口」趋势已基本确立。</span></p>
+  <p>这不是新问题。这是当年 Google / 百度统一入口局面的重演。</p>
+  <p>今天要回答的核心问题只有两个：<br>
+  各方怎么判断这件事？<br>
+  我们的防守策略和进攻机会是什么？</p>
+</div>
+
+<!-- ② 对比分析 -->
+<div class="mnp-module">
+  <div class="mnp-module-title">② 对比分析</div>
+
+  <div class="mnp-perspective">
+    <div class="mnp-perspective-header">
+      <span class="badge badge-blue">平台方</span>
+      <span class="mnp-perspective-title">豆包模式</span>
+    </div>
+    <div class="mnp-sub">判断</div>
+    <p>商家只提供 API 和服务。</p>
+    <p>选择、交易、闭环——全部留在豆包体系内。</p>
+    <div class="mnp-sub">对 OTA 意味着什么</div>
+    <p><span class="hl-red">OTA 完全变成执行层。没有入口价值，没有流量分配权，只留售后。</span></p>
+    <p>本质上是给豆包做长工。</p>
+  </div>
+
+  <div class="mnp-perspective">
+    <div class="mnp-perspective-header">
+      <span class="badge badge-blue">平台方</span>
+      <span class="mnp-perspective-title">微信模式</span>
+    </div>
+    <div class="mnp-sub">判断</div>
+    <p>用户输入旅行需求 → 微信传给携程等商家 → 商家返回推荐列表 → 以小程序卡片呈现在对话里。</p>
+    <p>交易和订单留在小程序内，数据还在商家自己库里。</p>
+    <p>看起来比豆包温和。</p>
+    <div class="mnp-sub">与豆包的本质差异</div>
+    <p><span class="hl-blue">流量推荐权名义上保留给商家，但实际价值存疑。</span></p>
+    <p>数据一旦给了入口 Agent，大模型同样可以自行推荐。</p>
+    <p><span class="hl-green">唯一真实保留的是：推荐哪三家酒店这件事还在商家手里。</span></p>
+    <div class="mnp-sub">与豆包的相同点</div>
+    <p><span class="hl-red">比价这件事，两家是一样的。</span></p>
+    <p>数据进了入口，用户无痛无痕比价就是必然结果。</p>
+    <p>退改签、客服、售后——两家都是商家自己处理。</p>
+    <p>综合来看，两种模式 70% 是一样的。</p>
+  </div>
+
+  <div class="mnp-perspective">
+    <div class="mnp-perspective-header">
+      <span class="badge badge-gray">用户视角</span>
+      <span class="mnp-perspective-title">产品能否成功？</span>
+    </div>
+    <div class="mnp-sub">判断</div>
+    <p><span class="hl-red">当前阶段，这类产品成功概率不高。</span></p>
+    <p>与原有 App 使用习惯完全不同。</p>
+    <p>语音订酒店 / 机票——是伪需求。</p>
+    <p>即使能比价，用户在几个 App 之间切换的成本也很低。</p>
+    <p>大模型预订的好处，还不够驱动用户改变习惯。</p>
+    <div class="mnp-sub">长期判断</div>
+    <p><span class="hl-green">未来是确定的——当大模型成为用户日常搜索和工作入口，这个模式自然会来。</span></p>
+    <p>但「今天到未来」的过渡路径还很模糊。需要杀手级应用来完成教育。</p>
+  </div>
+</div>
+
+<!-- ③ 核心挑战 -->
+<div class="mnp-module">
+  <div class="mnp-module-title">③ 核心挑战</div>
+
+  <div class="mnp-perspective">
+    <div class="mnp-perspective-header">
+      <span class="badge badge-green">OTA 通用</span>
+      <span class="mnp-perspective-title">接入后面临的三层拆解</span>
+    </div>
+    <p>大模型入口把酒店预订拆成了三步：</p>
+    <ul>
+      <li>第一步：推荐我订哪个酒店</li>
+      <li>第二步：找谁订更便宜</li>
+      <li>第三步：这家服务商靠不靠谱</li>
+    </ul>
+    <p><span class="hl-red">前面交互做得再好，用户还是会在第二步无痕比价，最终选最便宜的。</span></p>
+    <p>做推荐做得再精致，依然不能阻止比价发生。</p>
+  </div>
+
+  <div class="mnp-perspective">
+    <div class="mnp-perspective-header">
+      <span class="badge badge-green">OTA 通用</span>
+      <span class="mnp-perspective-title">比价的连锁反应</span>
+    </div>
+    <p><span class="hl-red">打价格战的损失不只发生在微信 / 豆包渠道。</span></p>
+    <p>App 上的价格也会被迫跟下来——否则 App 客户会流失到微信入口。</p>
+    <p>这样反而强化了微信入口的低价形象。</p>
+    <p>收入影响巨大，很难取舍。</p>
+    <p><span class="hl-red">只要进入比价流程，大家日子都不好过。这是确定性判断。</span></p>
+  </div>
+
+  <div class="mnp-perspective">
+    <div class="mnp-perspective-header">
+      <span class="badge badge-green">OTA 通用</span>
+      <span class="mnp-perspective-title">机票不在讨论范围内</span>
+    </div>
+    <p>航空公司会直连大模型入口。</p>
+    <p>OTA 和航空公司在同一个地方竞争，没有胜算。</p>
+    <p>今天的讨论以酒店预订为中心。</p>
+  </div>
+</div>
+
+<!-- ④ 战略应对 -->
+<div class="mnp-module">
+  <div class="mnp-module-title">④ 战略应对</div>
+
+  <div class="mnp-perspective">
+    <div class="mnp-perspective-header">
+      <span class="badge badge-purple">携程</span>
+      <span class="mnp-perspective-title">推荐交互投入是否值得？</span>
+    </div>
+    <div class="mnp-sub">判断</div>
+    <p>做更好的行程规划、更丰富的信息推荐——从产品角度应该做。</p>
+    <p><span class="hl-red">但在这个生态里完全不值得大力投入。</span></p>
+    <div class="mnp-sub">原因</div>
+    <p>历史前车之鉴：「全网营销，携程成交」。</p>
+    <p>做内容、做旅行博主，流量最终还是会跑到交易平台成交。</p>
+    <p>同理，在大模型生态里做好推荐，比价这一步仍然绕不过去。</p>
+    <div class="mnp-sub">策略</div>
+    <p><span class="hl-green">接入是必须的，但推荐层的投入要克制。把资源留给真正差异化的地方。</span></p>
+  </div>
+
+  <div class="mnp-perspective">
+    <div class="mnp-perspective-header">
+      <span class="badge badge-orange">去哪儿</span>
+      <span class="mnp-perspective-title">低价策略</span>
+    </div>
+    <div class="mnp-sub">判断</div>
+    <p>去哪儿的定位就是低价。</p>
+    <div class="mnp-sub">策略</div>
+    <p><span class="hl-green">在低价上要无底线卷，要有同归于尽的决心。</span></p>
+    <p>做第一就意味着零利润，或者利润砍半。</p>
+    <p>这个方向不能动摇。</p>
+    <div class="mnp-sub">风险</div>
+    <p><span class="hl-red">价格战会蔓延到 App 端，整体收入影响难以估量。</span></p>
+    <p>博弈论问题，目前没有标准解法——但一定有解。</p>
+  </div>
+
+  <div class="mnp-perspective">
+    <div class="mnp-perspective-header">
+      <span class="badge badge-green">OTA 通用</span>
+      <span class="mnp-perspective-title">防守三件事</span>
+    </div>
+    <div class="mnp-sub">会员体系</div>
+    <p>老客比竞品新客便宜。</p>
+    <p>高等级会员比竞品低等级会员便宜。</p>
+    <p>这是必须做的基本动作。</p>
+    <div class="mnp-sub">差异化报价</div>
+    <p>尝试差异化定价策略，但执行难度较高。</p>
+    <div class="mnp-sub">服务品牌化</div>
+    <p><span class="hl-green">售后服务必须提升到头部玩家水平。</span></p>
+    <p>价格被打穿之后，服务差异会被放大。</p>
+    <p>服务品牌化比以往任何时候都更急迫。</p>
+    <p>最终格局不变：更低的价格 + 更好的服务。</p>
+  </div>
+
+  <div class="mnp-perspective">
+    <div class="mnp-perspective-header">
+      <span class="badge badge-green">OTA 通用</span>
+      <span class="mnp-perspective-title">进攻方向：从交易平台转向营销平台</span>
+    </div>
+    <div class="mnp-sub">核心判断</div>
+    <p><span class="hl-green">推荐权最终会归大模型，不会归商家。</span></p>
+    <p>交易本身只赚 5 个点（含客服）。</p>
+    <p>真正的钱在营销费用里。</p>
+    <div class="mnp-sub">策略</div>
+    <p>做营销平台，而不只是交易平台。</p>
+    <p>收费模型：营销费（10 个点）+ 交易费（5 个点）。</p>
+    <p><span class="hl-green">这是突破纯比价内卷的唯一出口。</span></p>
+    <div class="mnp-sub">路径</div>
+    <p>推动商家直连，建立服务商组织结构。</p>
+    <p>这条路更适合小型组织先跑通，再向上扩展。</p>
+    <p><span class="hl-red">对现有大平台来说，转型难度较高，需要更多时间思考。</span></p>
+  </div>
+</div>
+
+<!-- ⑤ 规模判断 -->
+<div class="mnp-module">
+  <div class="mnp-module-title">⑤ 规模判断</div>
+
+  <p>参照系：小程序。</p>
+  <p>小程序出现时，技术同学认为 App 时代要落幕了。</p>
+  <p>实际结果：小程序目前占 OTA 交易量约 <strong>10%</strong>。</p>
+  <p><span class="hl-green">大模型入口的预判：两年内占比达到 20%～30%，70% 仍在 App 上。</span></p>
+  <p>注意：这是「两年内」的判断，不是终态。</p>
+  <p><span class="hl-red">这个趋势不可逆，比例会持续上升。</span></p>
+  <p>事情就这么大。但时间窗口还在。</p>
+</div>
+
+<!-- ⑥ 结论 -->
+<div class="mnp-module">
+  <div class="mnp-module-title">⑥ 结论</div>
+
+  <p><span class="hl-green">方向明确：大模型入口是确定性趋势，OTA 必须接入，不能观望。</span></p>
+  <p><span class="hl-red">核心风险：比价是最致命的，渠道价格战会蔓延至 App，整体利润率承压。</span></p>
+  <p><span class="hl-green">破局点：从交易平台转向营销平台，用营销费用对冲交易利润的流失。</span></p>
+  <p>不变的是：更低的价格 + 更好的服务。</p>
+  <p>变的是：营销方式要基于大模型重新探索。</p>
+  <p>今天到未来的过渡路径仍然模糊——<span class="hl-red">需要一个杀手级应用来完成这段教育，目前还不知道是什么。</span></p>
+  <p>时间还有，焦虑可以有，但不必慌。像小程序时代的拼多多和携程一样——机会留给想清楚的人。</p>
+</div>
+
+<div class="doc-footer">整理自会议录音 · 陈刚 · 2026-06-12</div>
+</div>
+</body>
+</html>
