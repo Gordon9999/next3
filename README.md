@@ -1,6 +1,6 @@
 # next3
 Next-generation OTA with AI
 
-OTAGame_cc.html
-
-OTAGame_gpt.html
+report1_cc.html
+report2_cc.html
+report1_gpt.html
