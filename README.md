@@ -5,4 +5,4 @@ report3_cc.html
 
 report1_gpt.html
 
-Wm0707.html
+qal-review-2026-07-07.html
