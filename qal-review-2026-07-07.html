@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QAL 项目周会梳理 - 2026-07-07</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --text: #172033;
+      --muted: #667085;
+      --line: #d8dee8;
+      --card: #fff;
+      --progress: #eef4ff;
+      --risk: #fff1f0;
+      --risk-line: #ffccc7;
+      --break: #eef8f1;
+      --break-line: #b7e4c7;
+      --mark: #2f5f9f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+
+    header {
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      margin-top: 30px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 21px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .summary-card,
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .summary-card {
+      padding: 14px;
+    }
+
+    .summary-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .summary-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .project-card {
+      overflow: hidden;
+    }
+
+    .project-head {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .block {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .block:last-child {
+      border-bottom: 0;
+    }
+
+    .progress {
+      background: var(--progress);
+    }
+
+    .risk {
+      background: var(--risk);
+      border-bottom-color: var(--risk-line);
+    }
+
+    .breakthrough {
+      background: var(--break);
+      border-bottom-color: var(--break-line);
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .note {
+      margin-top: 28px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 820px) {
+      main {
+        padding: 28px 14px 48px;
+      }
+
+      .summary,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>QAL 项目周会梳理</h1>
+      <p class="meta">会议记录：2026年7月7日。只整理材料中的事实、风险和可验证突破。</p>
+    </header>
+
+    <section aria-labelledby="overview">
+      <h2 id="overview">总览</h2>
+      <div class="summary">
+        <article class="summary-card">
+          <strong>本期明确进展</strong>
+          <p>质量体系和科目四被明确为 7 月第一批交付。</p>
+          <p>预定 Agent 准备向真实用户开 5%，次日计划开 10%。</p>
+          <p>小微项目按微信新方案开发，已进入联调。</p>
+        </article>
+        <article class="summary-card">
+          <strong>本期主要风险</strong>
+          <p>多个项目仍缺效果数据。</p>
+          <p>预定 Agent 的产品定位和 URS 问法没有定清楚。</p>
+          <p>AI 知识库是否是基础能力，还没有架构共识和投入安排。</p>
+        </article>
+        <article class="summary-card">
+          <strong>本期明确突破</strong>
+          <p>科目四插件稳定性问题已解决。</p>
+          <p>预定 Agent 首推拆成两步，首推可在 5 秒内给出。</p>
+          <p>其他突破多停留在方案或待验证阶段。</p>
+        </article>
+        <article class="summary-card">
+          <strong>需要追问</strong>
+          <p>基础质检第一版数何时出来。</p>
+          <p>预定 Agent 到底验证“准”“便宜”还是“降低决策焦虑”。</p>
+          <p>小微渠道的真实酒店流量和比价方向。</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="ai-service">
+      <h2 id="ai-service">AI 客服</h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-head">
+            <h3>不满意工单 UPS 归因</h3>
+            <span class="tag">质量体系</span>
+          </div>
+          <div class="block progress">
+            <span class="label">本期进展</span>
+            <p>周一拿到机票归因码表。</p>
+            <p>规则已梳理，交付内容已确认，最近两周项目节奏已定。</p>
+            <p>本周会拿少量 case 标注，周三前先核对一批文案，并出第一版数。</p>
+          </div>
+          <div class="block risk">
+            <span class="label">风险</span>
+            <p>当前还在定义码表问题、数据基建问题、归因条件和缺失字段。</p>
+            <p>材料没有看到第一版数，也没有看到归因准确率。</p>
+          </div>
+          <div class="block breakthrough">
+            <span class="label">突破</span>
+            <p>未看到明确突破。</p>
+            <p>本期主要是规则和节奏确认。</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-head">
+            <h3>基础质检</h3>
+            <span class="tag">质量体系</span>
+          </div>
+          <div class="block progress">
+            <span class="label">本期进展</span>
+            <p>交付内容和目标已同步。</p>
+            <p>交付内容是判断工单是否符合流程；如果有问题，要输出原因。</p>
+            <p>目标定为精确率 95%，召回率 60%。成本要求是每单低于 1 元，甚至低于 0.5 元。</p>
+            <p>计划下周二前完成第一版技术质检 scope，并跑第一版数。</p>
+          </div>
+          <div class="block risk">
+            <span class="label">风险</span>
+            <p>第一版数还没有出。</p>
+            <p>规则在会议时还没给到，skill 也还没写完。</p>
+            <p>人工质检的现有问题率口径现场没有讲清楚，S、A、B 类比例表述混乱。</p>
+          </div>
+          <div class="block breakthrough">
+            <span class="label">突破</span>
+            <p>未看到明确突破。</p>
+            <p>目标有了，但还没有跑数证明。</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-head">
+            <h3>服务力质检</h3>
+            <span class="tag">质量体系</span>
+          </div>
+          <div class="block progress">
+            <span class="label">本期进展</span>
+            <p>已投入使用。</p>
+            <p>近一周数据回收后，事项一致率稳定在 65% 左右。</p>
+            <p>识别需求基本到 100%。后续计划每半个月收集 badcase 再优化。</p>
+          </div>
+          <div class="block risk">
+            <span class="label">风险</span>
+            <p>本周没有明显进展。</p>
+            <p>一致率 65% 仍有提升空间，但材料没有说明主要错误类型。</p>
+            <p>badcase 收集机制还只是计划。</p>
+          </div>
+          <div class="block breakthrough">
+            <span class="label">突破</span>
+            <p>未看到明确突破。</p>
+            <p>材料只证明已稳定使用，不证明准确率有新提升。</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-head">
+            <h3>科目四</h3>
+            <span class="tag">员工培训承接</span>
+          </div>
+          <div class="block progress">
+            <span class="label">本期进展</span>
+            <p>已和机票、中台对接课程 list，本周在做课程。</p>
+            <p>考试标准由职场同学给打分规则，触犯红线可直接 0 分。</p>
+            <p>工单库二级分类已做完，并对齐工单系统。</p>
+            <p>插件稳定性问题已解决。方案包括 AI 开发浏览器、伪造工单号，避免请求影响线上。</p>
+            <p>7 月主要做新员工基础培训，覆盖机票改签流程。8 月预计把质检连接到科目四。</p>
+          </div>
+          <div class="block risk">
+            <span class="label">风险</span>
+            <p>C 侧要求交付的功能点还要再对齐。</p>
+            <p>AI mock 接口请求只是初步可行，还没有证明能替代录制脚本。</p>
+            <p>培训后是否提升员工服务能力，要到 8 月以后才有回收数据。</p>
+          </div>
+          <div class="block breakthrough">
+            <span class="label">突破</span>
+            <p>插件稳定性问题已解决。</p>
+            <p>如果 AI mock 接口方案跑通，后续可以减少对录制脚本的依赖。但本期还只是初步可行。</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-head">
+            <h3>AI 助手 / 工单总结</h3>
+            <span class="tag">第二批探索项目</span>
+          </div>
+          <div class="block progress">
+            <span class="label">本期进展</span>
+            <p>产品形态已确认，分为全单结构化总结和单通会话自然语言总结。</p>
+            <p>电话客服侧以多一列 AI 结果展示为主，不影响人工备注。</p>
+            <p>Chat 客服侧支持把 AI 总结生成到输入框，客服可编辑。</p>
+            <p>自然语言总结之前已人工验证，业务认为符合预期。</p>
+          </div>
+          <div class="block risk">
+            <span class="label">风险</span>
+            <p>结构化总结还需要业务重新出规则，再重新出一版数据验证。</p>
+            <p>当前没有负向指标。除了人工验，还不知道如何稳定判断总结是否错误。</p>
+            <p>过程埋点是计划，不是已回收的提效结果。</p>
+          </div>
+          <div class="block breakthrough">
+            <span class="label">突破</span>
+            <p>自然语言总结已有人工验证，业务认为符合预期。</p>
+            <p>结构化总结未看到明确突破。</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-head">
+            <h3>客服 Copilot</h3>
+            <span class="tag">第二批探索项目</span>
+          </div>
+          <div class="block progress">
+            <span class="label">本期进展</span>
+            <p>材料称本周关键卡点已解掉。</p>
+            <p>下周计划带项目组到成都，让测试小组真实接工单并使用工具。</p>
+            <p>测试会收集两类反馈：准确率反馈和产品使用体验反馈。</p>
+            <p>已找一线调研一版 UI，并收到细节建议。</p>
+          </div>
+          <div class="block risk">
+            <span class="label">风险</span>
+            <p>材料没有说明关键卡点具体是什么，也没有说明怎么解的。</p>
+            <p>准确率和体验反馈还没开始回收。</p>
+            <p>Copilot 被判断为难度较高，当前优先级可能低于质量体系和科目四。</p>
+          </div>
+          <div class="block breakthrough">
+            <span class="label">突破</span>
+            <p>材料称关键卡点已解决，但缺少具体依据。</p>
+            <p>按挑剔口径，只能算“待验证突破”。</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-head">
+            <h3>AI 知识库</h3>
+            <span class="tag">AI 客服基建</span>
+          </div>
+          <div class="block progress">
+            <span class="label">本期进展</span>
+            <p>用酒店流程知识库生成一版 AI 检查结果，扫描出一些知识库矛盾。</p>
+            <p>后续设想是把矛盾交给流程组修改，再更新原始文档和 AI 数据库。</p>
+            <p>会议中确认知识库可能影响 AI 助手、基础质检、UPS 归因和科目四。</p>
+          </div>
+          <div class="block risk">
+            <span class="label">风险</span>
+            <p>有团队在设计知识库蒸馏，但还没有实质立项。</p>
+            <p>知识库存在多套来源，监控室客服、机器人、人工知识库需要合并。</p>
+            <p>会议现场仍在追问：它到底影响谁，是否值得投入。</p>
+          </div>
+          <div class="block breakthrough">
+            <span class="label">突破</span>
+            <p>已能扫描出知识库矛盾。</p>
+            <p>但还没有形成修订、回流、再生成的连续流程，突破不完整。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="agent-booking">
+      <h2 id="agent-booking">Agent 预定</h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-head">
+            <h3>AppAgent / 预定 Agent</h3>
+            <span class="tag">端内酒店预定</span>
+          </div>
+          <div class="block progress">
+            <span class="label">本期进展</span>
+            <p>计划当天向真实用户开量 5%，次日开 10%。</p>
+            <p>入口在 LA 页横条，用户搜索 POI 或位置时出现。</p>
+            <p>首推酒店和备选酒店拆成两步。首推约 5 秒给出，备选约 12 秒给出。</p>
+            <p>前端修改了首推推荐理由，增加“来自多少条评论”的展示。</p>
+          </div>
+          <div class="block risk">
+            <span class="label">风险</span>
+            <p>“有住客提及”的文案被认为没有判断价值，只是在做 summary。</p>
+            <p>推荐理由没有解释“虽然有负面，但为什么仍然推荐”。</p>
+            <p>URS 问卷里“有用”口径太大，和“下次会不会再用”接近，不能指导改进。</p>
+            <p>产品定位还没有收敛。材料里反复追问是验证“准”、验证“便宜”，还是解决决策焦虑。</p>
+          </div>
+          <div class="block breakthrough">
+            <span class="label">突破</span>
+            <p>首推拆分后能在 5 秒内给出，这是明确的体验进展。</p>
+            <p>是否提升转化或满意度，材料未看到结果。</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-head">
+            <h3>小微项目</h3>
+            <span class="tag">微信小微接入</span>
+          </div>
+          <div class="block progress">
+            <span class="label">本期进展</span>
+            <p>微信上周三调整接入方案，从原始卡片模式改为简化方案。</p>
+            <p>新方案是不再渲染原始卡片，由小微 agent 读页面内容后，用文字总结并给小程序链接。</p>
+            <p>微信要求 7 月 17 日前开发完成，之后统一测评并灰度。</p>
+            <p>当前已按新方案开发完成，进入联调。</p>
+            <p>已招聘一位广州同学，跟进微信侧召回和内部逻辑信息。</p>
+          </div>
+          <div class="block risk">
+            <span class="label">风险</span>
+            <p>召回逻辑还没拿到。</p>
+            <p>体验可能比原方案更差，因为核心内容被改成小微文字总结。</p>
+            <p>已有灰度数据很弱：100 万到 120 万灰度用户下，同程一周 3 到 4 单，Q 一周约 1 单；通过该渠道打开小程序约 100 UV，携程约 500 UV。</p>
+            <p>更大的风险是小微后续走向比价。如果入口变成比价，项目价值和是否继续接入都要重新判断。</p>
+          </div>
+          <div class="block breakthrough">
+            <span class="label">突破</span>
+            <p>未看到业务突破。</p>
+            <p>本期只是适配微信新方案，且渠道流量和订单都很低。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="strategy-map">
+      <h2 id="strategy-map">战略地图 Agent</h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-head">
+            <h3>战略地图 / 数据分析 Agent</h3>
+            <span class="tag">材料归类</span>
+          </div>
+          <div class="block progress">
+            <span class="label">本期进展</span>
+            <p>数据分析项目修复了一项架构设计问题。</p>
+            <p>输出模板已对齐，下钻维度输出逻辑已确认没问题。</p>
+            <p>已输出一版 2 月份 CPO，交给东哥验证，当前处于验证阶段。</p>
+          </div>
+          <div class="block risk">
+            <span class="label">风险</span>
+            <p>材料没有出现“战略地图 Agent”的明确项目名。</p>
+            <p>当前只有模板、下钻逻辑和一版 CPO 输出，尚未看到验证结论。</p>
+            <p>如果要作为战略地图使用，还缺业务口径、使用场景和决策动作说明。</p>
+          </div>
+          <div class="block breakthrough">
+            <span class="label">突破</span>
+            <p>未看到明确突破。</p>
+            <p>本期更像从搭框架进入验证。</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-head">
+            <h3>财务月报分析 Agent</h3>
+            <span class="tag">材料归类</span>
+          </div>
+          <div class="block progress">
+            <span class="label">本期进展</span>
+            <p>已和财务对齐月度报表分析交付内容。</p>
+            <p>底层数据已跑通，预计下周出初步 demo。</p>
+            <p>场景是国际机票财务月度收益、成本报告。</p>
+          </div>
+          <div class="block risk">
+            <span class="label">风险</span>
+            <p>该项目被明确为不在主线，只需简单做。</p>
+            <p>价值被描述为效率，但材料没有给出节省时间或减少人力的数据。</p>
+            <p>依赖底层数据明确和口径对齐；demo 还没出来。</p>
+          </div>
+          <div class="block breakthrough">
+            <span class="label">突破</span>
+            <p>底层数据跑通是进展。</p>
+            <p>未看到明确业务突破。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <p class="note">说明：本页按会议记录整理。凡材料没有给出指标、验证结果或前后对比的地方，均按“未证明”处理。</p>
+  </main>
+</body>
+</html>
