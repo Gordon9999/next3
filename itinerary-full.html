@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026 年 8 月美国行程 - 详版</title>
+  <style>
+    :root{
+      --canvas:#f3f4f6;
+      --paper:#fff;
+      --text:#1d2430;
+      --muted:#66707c;
+      --line:#e2e5e9;
+      --accent:#1768c5;
+      --warning:#915b00;
+      --warning-line:#e7c98f;
+      --warning-bg:#fff8e8;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--canvas);
+      color:var(--text);
+      font:14px/1.52 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+    main{max-width:1120px;margin:0 auto;padding:24px 20px 44px}
+    header,.day,.panel{background:var(--paper);border:1px solid var(--line);border-radius:4px}
+    header{padding:20px 22px;margin-bottom:12px}
+    h1{font-size:24px;line-height:1.25;margin:0 0 8px;font-weight:650;letter-spacing:-.2px}
+    h2{font-size:15px;line-height:1.4;margin:0;font-weight:650}
+    .meta,.route{display:flex;flex-wrap:wrap;gap:4px 18px;color:var(--muted)}
+    .route{margin-top:10px;align-items:center}
+    .route b{color:var(--text);font-weight:500;white-space:nowrap}
+    .route i{font-style:normal;color:#a5abb3}
+    .day{
+      display:grid;
+      grid-template-columns:126px minmax(0,1fr);
+      gap:18px;
+      padding:16px 20px;
+      margin-top:8px;
+    }
+    .day-head{border-right:1px solid var(--line);padding-right:16px;min-width:0}
+    .dn{font-size:15px;font-weight:700;color:var(--accent)}
+    .date{font-weight:650;margin-top:2px;white-space:nowrap}
+    .city{font-size:13px;color:var(--muted);margin-top:3px;line-height:1.35}
+    .day-title{
+      display:grid;
+      grid-template-columns:minmax(240px,1fr) auto;
+      gap:18px;
+      align-items:baseline;
+      margin-bottom:9px;
+    }
+    .stay{font-size:13px;color:var(--muted);text-align:right;white-space:nowrap}
+    .timeline{display:grid}
+    .item{
+      display:grid;
+      grid-template-columns:108px minmax(0,1fr);
+      gap:14px;
+      border-top:1px solid var(--line);
+      padding:8px 0;
+      min-width:0;
+    }
+    .item:first-child{border-top:0;padding-top:0}
+    .item:last-child{padding-bottom:0}
+    .time{font-weight:600;color:var(--muted);white-space:nowrap}
+    .sub{display:inline;color:var(--muted);font-size:13px;margin-left:5px}
+    .sub::before{content:"·";margin-right:5px;color:#a5abb3}
+    .tag{
+      display:inline-block;
+      margin-left:4px;
+      padding:0 5px;
+      border:1px solid #d8dde3;
+      border-radius:3px;
+      color:var(--muted);
+      background:transparent;
+      font-size:12px;
+      line-height:18px;
+      font-weight:500;
+      white-space:nowrap;
+      vertical-align:1px;
+    }
+    .ok,.suggest,.optional{color:var(--muted);background:transparent}
+    .todo{color:var(--warning);border-color:var(--warning-line);background:var(--warning-bg)}
+    .panel{padding:16px 20px;margin-top:10px}
+    .panel h2{margin-bottom:8px}
+    .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .visit-table{width:100%;min-width:680px;border-collapse:collapse;table-layout:fixed}
+    .visit-table th,.visit-table td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    .visit-table th{color:var(--muted);background:#fafafa;font-weight:600}
+    .visit-table tr:last-child td{border-bottom:0}
+    .visit-table th:nth-child(1),.visit-table td:nth-child(1){width:150px;white-space:nowrap}
+    .visit-table th:nth-child(2),.visit-table td:nth-child(2){width:140px;white-space:nowrap}
+    .visit-table th:nth-child(3),.visit-table td:nth-child(3){width:auto}
+    .visit-table th:nth-child(4),.visit-table td:nth-child(4){width:170px;white-space:nowrap}
+    ul{margin:0;padding-left:20px}
+    li+li{margin-top:5px}
+    .decision{border-left:3px solid var(--accent)}
+    .pending{border-left:3px solid var(--warning)}
+    .pending h2{color:var(--warning)}
+    @media(max-width:760px){
+      main{padding:10px 8px 28px}
+      header{padding:16px}
+      h1{font-size:21px}
+      .meta{gap:2px 12px}
+      .route{gap:3px 7px}
+      .day{grid-template-columns:1fr;gap:9px;padding:14px}
+      .day-head{
+        display:flex;
+        align-items:baseline;
+        gap:9px;
+        border-right:0;
+        border-bottom:1px solid var(--line);
+        padding:0 0 8px;
+      }
+      .date{margin:0}
+      .city{margin:0}
+      .day-title{grid-template-columns:1fr;margin-bottom:8px;gap:2px}
+      .stay{text-align:left;white-space:normal}
+      .item{grid-template-columns:94px minmax(0,1fr);gap:10px}
+      .panel{padding:14px}
+    }
+    @media(max-width:430px){
+      .item{grid-template-columns:82px minmax(0,1fr)}
+      .time{font-size:13px}
+      .tag{margin-left:0;margin-top:3px}
+    }
+  </style>
+</head>
+<body><main>
+  <header>
+    <h1>2026 年 8 月美国行程</h1>
+    <div class="meta"><span>8/16（周日）— 8/24（周一）</span><span>9 天 / 8 晚</span><span>纽约 1 晚 · JFK 1 晚 · 湾区 6 晚</span></div>
+    <div class="route"><b>上海</b><i>→</i><b>纽约</b><i>→</i><b>石溪 / JFK</b><i>→</i><b>旧金山湾区</b><i>→</i><b>上海</b></div>
+  </header>
+
+  <section class="panel">
+    <h2>拜访 / 会面清单</h2>
+    <div class="table-wrap"><table class="visit-table">
+      <thead><tr><th>对象</th><th>大致日期</th><th>地点范围</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td><strong>CY</strong>（同行）</td><td>8/16–8/17</td><td>纽约市区 / 石溪 / JFK</td><td><span class="tag ok">已确认</span></td></tr>
+        <tr><td><strong>CH</strong></td><td>8/18 晚</td><td>West San Jose</td><td><span class="tag todo">时间待确认</span></td></tr>
+        <tr><td><strong>Cresta</strong></td><td>8/19 上午暂排</td><td>Sunnyvale / South Bay</td><td><span class="tag todo">时间 / 地址待确认</span></td></tr>
+        <tr><td><strong>Decagon</strong></td><td>8/20 上午暂排</td><td>SF 市区</td><td><span class="tag todo">时间 / 地址待确认</span></td></tr>
+        <tr><td><strong>SIHUI</strong></td><td>8/20 下午暂排</td><td>SF 市区</td><td><span class="tag todo">时间 / 地址待确认</span></td></tr>
+        <tr><td><strong>Benny</strong></td><td>8/21 暂排</td><td>湾区（范围待确认）</td><td><span class="tag todo">日期 / 地点待确认</span></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="panel decision">
+    <h2>当前推荐方案</h2>
+    <ul>
+      <li>8/16 CY 在 JFK 接机并全程陪同，前往纽约市区，入住 Arlo Midtown。</li>
+      <li>8/17 午餐后约 13:30 与 CY 一起去石溪，当晚返回 JFK；8/18 上午优先从 JFK 飞 SJC，如无合适直飞则改飞 SFO。</li>
+      <li>8/18 抵达后休息、调整时差，晚上见 CH；8/19 上午暂排 Cresta，8/20 上午暂排 Decagon、下午 SIHUI，8/21 暂排 Benny。</li>
+    </ul>
+  </section>
+
+  <section class="day"><div class="day-head"><div class="dn">D1</div><div class="date">8/16 周日</div><div class="city">上海 → JFK → 纽约</div></div><div>
+    <div class="day-title"><h2>CY 接机 + 纽约市区</h2><div class="stay">Arlo Midtown <span class="tag ok">已确认</span></div></div>
+    <div class="timeline">
+      <div class="item"><div class="time">11:30</div><div><strong>MU587：PVG → JFK，计划 14:25 抵达</strong><div class="sub">航班日期、票面时刻与航站楼仍需以订单为准。</div></div></div>
+      <div class="item"><div class="time">抵达后</div><div>入境、取行李；CY 在 JFK 接机并全程陪同。 <span class="tag ok">已确认</span></div></div>
+      <div class="item"><div class="time">下午</div><div>与 CY 一起前往纽约市区，办理酒店入住。</div></div>
+      <div class="item"><div class="time">住宿</div><div><strong>Arlo Midtown</strong> <span class="tag ok">已确认</span><div class="sub">351 W 38th St；8/16 入住、8/17 退房；2 张双人床；8/17 含 2 份早餐</div></div></div>
+      <div class="item"><div class="time">18:00 后</div><div>与 CY 一起在纽约活动；Hudson Yards → High Line，晚餐后可去 Times Square。</div></div>
+    </div>
+  </div></section>
+
+  <section class="day"><div class="day-head"><div class="dn">D2</div><div class="date">8/17 周一</div><div class="city">纽约 → 石溪 → JFK</div></div><div>
+    <div class="day-title"><h2>纽约半日 + 石溪</h2><div class="stay">JFK 附近 <span class="tag todo">待确认</span></div></div>
+    <div class="timeline">
+      <div class="item"><div class="time">08:30–11:30</div><div>CY 全程陪同；Bryant Park → 纽约公共图书馆 → 第五大道 / Rockefeller Center。</div></div>
+      <div class="item"><div class="time">11:30–13:15</div><div>返回酒店取行李，与 CY 一起午餐。</div></div>
+      <div class="item"><div class="time">约 13:30</div><div>与 CY 一起从纽约市区出发前往石溪。 <span class="tag ok">时间已确认</span></div></div>
+      <div class="item"><div class="time">下午</div><div>石溪大学访校 / 校园活动。 <span class="tag todo">具体安排待确认</span></div></div>
+      <div class="item"><div class="time">晚上</div><div>与 CY 一起从石溪返回 JFK。</div></div>
+      <div class="item"><div class="time">住宿</div><div>JFK 附近住宿。 <span class="tag todo">酒店待确认</span></div></div>
+    </div>
+  </div></section>
+
+  <section class="day"><div class="day-head"><div class="dn">D3</div><div class="date">8/18 周二</div><div class="city">JFK → SJC / SFO</div></div><div>
+    <div class="day-title"><h2>上午飞湾区 + 休息 + CH</h2><div class="stay">South Bay <span class="tag todo">酒店待确认</span></div></div>
+    <div class="timeline">
+      <div class="item"><div class="time">上午</div><div><strong>首选 JFK → SJC</strong>；SJC 更靠近 CH 和次日 South Bay 行程。如没有合适直飞或到达时间明显更晚，再选 JFK → SFO。国内航班起飞前至少 2 小时到机场。 <span class="tag todo">机场 / 航班待确认</span></div></div>
+      <div class="item"><div class="time">抵达后</div><div>取车 / 网约车去酒店，放行李或办理入住。</div></div>
+      <div class="item"><div class="time">下午</div><div>休息、调整时差。</div></div>
+      <div class="item"><div class="time">晚上</div><div>见 CH，West San Jose，1141 S Genevieve Ln。 <span class="tag todo">时间待确认</span></div></div>
+    </div>
+  </div></section>
+
+  <section class="day"><div class="day-head"><div class="dn">D4</div><div class="date">8/19 周三</div><div class="city">South Bay</div></div><div>
+    <div class="day-title"><h2>South Bay 客户拜访日</h2><div class="stay">湾区同一酒店 <span class="tag todo">区域待定</span></div></div>
+    <div class="timeline">
+      <div class="item"><div class="time">上午</div><div><strong>拜访 Cresta</strong>，Sunnyvale / South Bay。 <span class="tag todo">时间 / 会面地址待确认</span></div></div>
+      <div class="item"><div class="time">中午</div><div>同区域午餐和转场。</div></div>
+      <div class="item"><div class="time">下午</div><div>South Bay 第二场客户会面或跟进会议。 <span class="tag todo">安排待确认</span></div></div>
+      <div class="item"><div class="time">晚上</div><div>整理会议纪要并完成跟进。</div></div>
+    </div>
+  </div></section>
+
+  <section class="day"><div class="day-head"><div class="dn">D5</div><div class="date">8/20 周四</div><div class="city">SF 市区</div></div><div>
+    <div class="day-title"><h2>SF 市区拜访日</h2><div class="stay">湾区同一酒店</div></div>
+    <div class="timeline">
+      <div class="item"><div class="time">上午</div><div><strong>拜访 Decagon</strong>，SF 市区。 <span class="tag todo">时间 / 会面地址待确认</span></div></div>
+      <div class="item"><div class="time">中午</div><div>SF 市区午餐和转场。</div></div>
+      <div class="item"><div class="time">下午</div><div><strong>拜访 SIHUI</strong>，地点在 SF 市区。 <span class="tag todo">时间 / 地址待确认</span></div></div>
+      <div class="item"><div class="time">16:00 后</div><div>整理会议纪要并完成跟进。</div></div>
+    </div>
+  </div></section>
+
+  <section class="day"><div class="day-head"><div class="dn">D6</div><div class="date">8/21 周五</div><div class="city">湾区</div></div><div>
+    <div class="day-title"><h2>Peninsula / South Bay 客户 + 收口</h2><div class="stay">湾区同一酒店</div></div>
+    <div class="timeline">
+      <div class="item"><div class="time">上午</div><div><strong>拜访 Benny</strong>。 <span class="tag todo">时间 / 地点范围待确认</span></div></div>
+      <div class="item"><div class="time">下午</div><div>同区域第二场客户会面或内部复盘。 <span class="tag todo">安排待确认</span></div></div>
+      <div class="item"><div class="time">17:00 前</div><div>完成所有对外待办确认。</div></div>
+    </div>
+  </div></section>
+
+  <section class="day"><div class="day-head"><div class="dn">D7</div><div class="date">8/22 周六</div><div class="city">湾区</div></div><div>
+    <div class="day-title"><h2>机动 + 总结</h2><div class="stay">湾区同一酒店</div></div>
+    <div class="timeline">
+      <div class="item"><div class="time">上午</div><div>内部总结、整理资料、完成客户跟进。</div></div>
+      <div class="item"><div class="time">下午</div><div>机动安排 / 已确认的周末会面。 <span class="tag todo">安排待确认</span></div></div>
+      <div class="item"><div class="time">晚上</div><div>自由活动和休息。</div></div>
+    </div>
+  </div></section>
+
+  <section class="day"><div class="day-head"><div class="dn">D8</div><div class="date">8/23 周日</div><div class="city">旧金山</div></div><div>
+    <div class="day-title"><h2>旧金山一日游</h2><div class="stay">湾区同一酒店</div></div>
+    <div class="timeline">
+      <div class="item"><div class="time">10:00–11:30</div><div><strong>Ferry Building + Embarcadero</strong><div class="sub">周日商铺通常 11:00 起陆续营业</div></div></div>
+      <div class="item"><div class="time">11:30–14:00</div><div>Pier 39 / Fisherman’s Wharf，午餐。<div class="sub">可步行结合 F 线历史街车</div></div></div>
+      <div class="item"><div class="time">14:00–15:00</div><div>Lombard Street。</div></div>
+      <div class="item"><div class="time">15:00–16:30</div><div>Palace of Fine Arts。</div></div>
+      <div class="item"><div class="time">16:30–18:30</div><div>Crissy Field → Golden Gate Bridge Plaza；天气合适可步行上桥后原路返回。<div class="sub">桥区风大，带外套；桥头停车有限，优先公共交通</div></div></div>
+      <div class="item"><div class="time">18:30 后</div><div>Marina / Cow Hollow 晚餐，返回酒店；整理行李、确认次日航班。</div></div>
+    </div>
+  </div></section>
+
+  <section class="day"><div class="day-head"><div class="dn">D9</div><div class="date">8/24 周一</div><div class="city">SFO → 上海</div></div><div>
+    <div class="day-title"><h2>返程</h2><div class="stay">通常 8/25 周二抵达</div></div>
+    <div class="timeline">
+      <div class="item"><div class="time">优先级</div><div>优先 SFO → PVG 直飞。SFO 官方当前列有中国东方航空与联合航空直飞上海。 <span class="tag suggest">先查直飞</span></div></div>
+      <div class="item"><div class="time">出发</div><div>按票面起飞时间倒推：国际航班建议提前约 3 小时到 SFO；酒店至机场时间另算。</div></div>
+      <div class="item"><div class="time">备选</div><div>直飞不合适时，比较经首尔 / 东京 / 台北 / 香港中转的票价、总时长和行李直挂。</div></div>
+    </div>
+  </div></section>
+
+  <section class="panel"><h2>预订顺序</h2><ul>
+    <li><strong>先比较 8/18 上午 JFK → SJC 与 JFK → SFO 航班</strong>：有合适直飞时优先 SJC；否则选 SFO。并锁定 8/17 晚 JFK 附近住宿。</li>
+    <li>确认 8/18 晚与 CH 见面的具体时间。</li>
+    <li>确认 Cresta、Decagon、Benny、SIHUI 的可约时间与实际会面地址；优先保持 8/19 South Bay、8/20 SF 市区的区域分组。</li>
+    <li>根据客户重心订湾区 6 晚同一家酒店，最后确认 8/24 SFO → PVG。</li>
+  </ul></section>
+
+  <section class="panel pending"><h2>待确认</h2><ul>
+    <li>MU587 订单中的日期、票面时刻和航站楼。</li>
+    <li>8/17 石溪具体安排及当晚 JFK 附近酒店。</li>
+    <li>8/18 上午 JFK → SJC（首选）/ SFO（备选）的具体航班，以及与 CH 见面的具体时间。</li>
+    <li>Cresta（8/19 上午暂排）、Decagon（8/20 上午暂排）、SIHUI（8/20 下午暂排）、Benny（8/21 暂排）的最终时间与实际会面地址；湾区酒店区域。</li>
+    <li>8/24 SFO → PVG 航班号、起飞时间及 8/25 到达时间。</li>
+  </ul></section>
+</main></body></html>
