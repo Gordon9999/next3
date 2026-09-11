@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行 Agent 不是 OTA 的终局</title>
+    <style>
+        /* ===== 基础重置 ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== 页面容器 ===== */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        /* ===== 文章头部（FT 风格） ===== */
+        .article-header {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .article-header .kicker {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.6rem;
+        }
+        .article-header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.35;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.01em;
+        }
+        .article-header .standfirst {
+            font-size: 1.05rem;
+            color: #475569;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* ===== 一级标题（大段分隔） ===== */
+        .part-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid #1e293b;
+            letter-spacing: 0.02em;
+        }
+
+        /* ===== 二级标题（小节内分节） ===== */
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-top: 1.8rem;
+            margin-bottom: 0.6rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        /* ===== 正文段落 ===== */
+        .article-body p {
+            font-size: 1rem;
+            color: #1e293b;
+            line-height: 1.8;
+            margin-bottom: 0.6rem;
+        }
+        .article-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== 绿色高亮 ===== */
+        .highlight {
+            color: #16a34a;
+            font-weight: 500;
+        }
+
+        /* ===== 引用块 ===== */
+        .quote-block {
+            margin: 1.5rem 0;
+            padding: 1rem 1.2rem;
+            border-left: 3px solid #2563eb;
+            background: #f8fafc;
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        /* ===== 尾部信息 ===== */
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+        .footer .footer-meta {
+            margin-bottom: 0.3rem;
+            line-height: 1.6;
+        }
+        .footer .footer-meta:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 640px) {
+            .container { padding: 1.5rem 1rem 3rem; }
+            .article-header h1 { font-size: 1.4rem; }
+            .article-header .standfirst { font-size: 0.95rem; }
+            .article-header .kicker { font-size: 0.72rem; }
+            .part-title { font-size: 1.15rem; }
+            .section-title { font-size: 1.05rem; }
+            .article-body p { font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ===== 文章头部 ===== -->
+    <div class="article-header">
+        <div class="kicker">行业观察</div>
+        <h1>旅行 Agent 不是 OTA 的终局</h1>
+        <div class="standfirst">OTA 的消费者界面已经接近稳定终局。AI 真正改变的，是后台的成本与履约，不是用户为什么打开 OTA——这是经过现实检验之后的判断。</div>
+    </div>
+
+    <!-- ===== 正文 ===== -->
+    <div class="article-body">
+
+        <!-- 引子 -->
+        <p>先看今天 OTA 的核心页面：</p>
+        <p>输入目的地和日期 → 展示几百家酒店 → 筛选排序 → 用户选择。</p>
+        <p>下一代可能变成：</p>
+        <p>用户说需求 → AI 理解约束 → 生成方案 → 自动组合采购 → 行中调整 → 售后处理。</p>
+        <br>
+        <p>用户不再"使用 Booking 搜酒店"，而是把一次旅行目标交给它。</p>
+        <p>这个判断听起来顺理成章。但现实检验之后，我发现它只对了一半。</p>
+
+        <!-- ============ 第一部分：初版判断（简化速览） ============ -->
+    <div class="part-title">第一版判断：OTA 会变成 AI 驱动的交易与履约网络</div>
+
+    <p>一句话概括：<span class="highlight">前台从货架变成 Agent，后台从信息撮合变成交易基础设施。</span>核心逻辑是五条：</p>
+    <br>
+    <p><strong>1. 货架式搜索最先消失。</strong>OTA 辛苦积累二十年的"搜索与排序产品"，会被压缩到一次 Agent 调用里——搜索框、筛选器、列表页从主入口退化为辅助工具。</p>
+    <p><strong>2. 平台真正的下一步是"旅行执行 Agent"。</strong>订单不再是一次交易，而是持续十几天甚至几个月的任务；Booking 的 Connected Trip 会从交叉销售逻辑，升级成持续执行逻辑。</p>
+    <p><strong>3. 前台可能被别人拿走，后台反而更加重要。</strong>ChatGPT、Google、抖音都可能截走用户入口，但库存、价格、支付和售后仍要经过 OTA——平台从显性的流量品牌，变成隐性的交易基础设施。<span class="highlight">界面可能被去中介化，履约却很难被去中介化。</span></p>
+    <br>
+    <p>未来会发生这样的分层：</p>
+    <table style="width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.92rem;">
+        <tr>
+            <th style="background:#1e293b;color:#fff;padding:0.6rem 0.8rem;text-align:left;font-weight:600;">层次</th>
+            <th style="background:#1e293b;color:#fff;padding:0.6rem 0.8rem;text-align:left;font-weight:600;">谁可能掌握</th>
+            <th style="background:#1e293b;color:#fff;padding:0.6rem 0.8rem;text-align:left;font-weight:600;">核心价值</th>
+        </tr>
+        <tr>
+            <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">用户入口</td>
+            <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">ChatGPT、Google、抖音、OTA Agent</td>
+            <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">理解用户、生成方案</td>
+        </tr>
+        <tr>
+            <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">决策与编排</td>
+            <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">旅行 Agent</td>
+            <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">跨品类组合、动态决策</td>
+        </tr>
+        <tr>
+            <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">交易网络</td>
+            <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">Booking、Expedia、航旅平台</td>
+            <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">库存、价格、预订、支付</td>
+        </tr>
+        <tr>
+            <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">履约与风险</td>
+            <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">OTA、供应商、保险机构</td>
+            <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">改签、退款、兜底、赔付</td>
+        </tr>
+        <tr>
+            <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">实际供给</td>
+            <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">酒店、航司、景区</td>
+            <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">提供服务</td>
+        </tr>
+    </table>
+    <br>
+    <p><strong>4. 护城河会改变。</strong>从流量、酒店数量和评论，变成可执行的供给网络、跨供应商履约能力、支付与信用、真实结果数据——静态信息很容易被 AI 获取，<span class="highlight">可靠执行权很难复制</span>。</p>
+    <p><strong>5. 商业模式会从流量抽佣变成多层收费，行业也不会是一家吃掉全部。</strong>更可能拆成三类：拥有用户的旅行 Agent、拥有交易网络的平台、拥有独特供给的经营者。<span class="highlight">OTA 最大的风险，是失去上层的用户决策权，只剩下层的交易履约权。</span></p>
+    <br>
+    <p>对去哪儿的启示：不能只做"能聊天、能推荐"的助手，那层能力很快会成为标配；真正该建设的是用户 Agent、交易编排系统、履约网络三层——把低价升级成 <span class="highlight">Agent 能够理解和执行的结构化低价</span>。</p>
+
+    <div class="quote-block">
+        <p><strong>最后我的核心判断是：</strong></p>
+        <p>OTA 1.0卖库存，OTA 2.0卖比较和流量，OTA 3.0卖完整交易，下一代平台卖的是"替用户承担一次旅行的决策与履约责任"。</p>
+        <p><span class="highlight">谁只是生成答案，谁就会成为薄薄的一层功能；谁能够可靠地执行、修改并为结果负责，谁才是下一代平台。</span></p>
+    </div>
+
+    <!-- ============ 第二部分：现实反驳 ============ -->
+        <div class="part-title">但做了这么久，我发现现实并非如此</div>
+        <p>好像做了这么久，并非如此。</p>
+        <p>比如行程规划，我们实际生活中的行程规划基本不是靠理性推荐，而是自己去看非常多的视频和图文，形成兴趣。</p>
+        <p>再比如订酒店，在 LLM 里订酒店并没有特别的价值：没有 OTA 的基础信息，LLM 无法完成自然语言搜索；反过来说，OTA 也能做相同的事情。</p>
+        <p>更麻烦的是，多数人订酒店没有那么复杂，几个条件就可以选择了，更多的是选择地段和价格。</p>
+        <p><span class="highlight">LLM 没有足够的用户价值，让用户改变预订习惯。</span></p>
+
+        <!-- ============ 第三部分：修正判断 ============ -->
+        <div class="part-title">再往前推一步：修正后的判断</div>
+        <p>对。再往前推一步，你这个观察实际否定了一个流行前提：</p>
+        <p><span class="highlight">旅游不是"信息不足、决策复杂，所以需要 AI 代替决策"的行业。</span></p>
+        <p>很多时候，浏览、比较、想象本身就是消费体验；最后的交易反而很简单。</p>
+        <br>
+        <p>所以不能因为大模型出现，就倒推出 Booking、Expedia 下一步必然是"旅行 Agent"。</p>
+        <p>更可能的答案是：<span class="highlight">OTA 的消费者产品已经相当接近稳定形态，未来主要不是产品形态革命，而是平台经营深化。</span></p>
+
+        <div class="section-title">一、行程规划本来就不是一个标准优化问题</div>
+        <p>AI行程规划假设用户的需求是：我有一组明确偏好，请替我求出最优旅行方案。</p>
+        <p>但现实更像：我还不知道自己想去哪儿，通过不断看内容，逐渐形成兴趣。</p>
+        <br>
+        <p>这个过程有几个特点：</p>
+        <p>偏好不是预先存在的，而是在浏览中生成；用户喜欢偶然发现，而不是只看"最适合自己"的结果；图片和视频提供的是氛围感，文字总结无法替代；用户经常不是在完成任务，而是在消遣和想象；决策过程可能持续几周，并不追求效率最大化。</p>
+        <br>
+        <p>所以"看了100条视频才决定去北海道"，不能被视为低效率。<span class="highlight">那100条视频本身就是旅行体验的前半段。</span></p>
+        <p>LLM可以总结"北海道适合什么人"，却很难制造某个雪景视频带来的欲望。</p>
+        <p><span class="highlight">旅游首先是欲望生成，之后才是理性选择。</span></p>
+
+        <div class="section-title">二、酒店预订已经被OTA压缩得足够简单</div>
+        <p>大多数酒店预订实际上是一个非常浅的决策漏斗：</p>
+        <p>去哪里；住哪个地段；大约多少钱；评分是否过关；看图片和差评；下单。</p>
+        <p>OTA现有的地图、价格、评分和筛选器，已经非常适合这个任务。</p>
+        <br>
+        <p>假设用户说：</p>
+        <p>帮我找东京交通方便、安静、适合带父母、每晚1500元以内的酒店。</p>
+        <p>LLM表面上理解了需求，但真正产生结果仍然依赖OTA拥有的数据：</p>
+        <table style="width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.92rem;">
+            <tr>
+                <th style="background:#1e293b;color:#fff;padding:0.6rem 0.8rem;text-align:left;font-weight:600;">用户表达</th>
+                <th style="background:#1e293b;color:#fff;padding:0.6rem 0.8rem;text-align:left;font-weight:600;">实际需要的底层数据</th>
+            </tr>
+            <tr>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">交通方便</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">酒店坐标、地铁站、线路和距离</td>
+            </tr>
+            <tr>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">安静</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">房型、临街情况、评论语义</td>
+            </tr>
+            <tr>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">适合父母</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">电梯、步行坡度、房间面积、早餐</td>
+            </tr>
+            <tr>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">1500元以内</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">实时库存、税费和汇率</td>
+            </tr>
+            <tr>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">值得住</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">评分、差评、价格和取消政策</td>
+            </tr>
+        </table>
+        <p>LLM没有这些数据，就只能说一些看似合理但无法交易的话。</p>
+        <p>OTA有了这些数据，接一个通用模型便能做同样的自然语言解析。</p>
+        <p>因此：<span class="highlight">大模型不掌握供给，OTA又不缺大模型。</span></p>
+        <p>自然语言酒店搜索很难成为ChatGPT相对OTA的结构性优势。</p>
+
+        <div class="section-title">三、自然语言也没有明显战胜现有界面</div>
+        <p>对简单、明确、频繁修改的条件，点击往往比对话高效。</p>
+        <p>用户通过地图一眼就能看见：酒店在哪儿；周围有什么；贵多少；还有哪些选择；改一下价格区间会发生什么。</p>
+        <p>而对话界面每次只展示少量答案，会损失空间关系、价格分布和选择控制感。</p>
+        <br>
+        <p>尤其旅游属于低频、高金额、容易后悔的消费。用户通常不愿意只接受Agent给出的三个答案，而是仍想确认：</p>
+        <p>有没有漏掉更便宜的；隔壁街区怎么样；为什么不推荐这一家；这张照片真实吗。</p>
+        <br>
+        <p>所以合理形态不是"对话替代列表"，而是：</p>
+        <p><span class="highlight">AI帮助用户设置条件、解释差异，地图和列表继续承担最终选择。</span></p>
+        <p>这只是搜索体验的一项改进，不足以改变预订习惯。</p>
+
+        <div class="section-title">四、过去几年旅行规划产品没有起飞，不只是技术不够</div>
+        <p>如果问题只是模型能力不足，那么随着模型进步，用户使用应该明显增加。但旅行规划类产品长期面临的是更基础的问题：</p>
+        <br>
+        <p><span class="highlight">使用频率太低</span>：多数用户一年只有几次复杂旅行，没有动力学习和养成一个新的Agent入口。</p>
+        <p><span class="highlight">错误成本太高</span>：餐厅推荐错了损失有限，酒店日期、位置、房型、签证或者退改规则错了，损失可能很大。</p>
+        <p><span class="highlight">结果难以验证</span>：Agent声称这是"最适合你的酒店"，用户无法确定它搜索了多少库存、是否受佣金影响、有没有漏掉促销。</p>
+        <p><span class="highlight">交易仍需人工确认</span>：只要用户还要核对日期、价格、房型、行李和取消政策，Agent节省的操作就很有限。</p>
+        <p><span class="highlight">选择本身具有愉悦感</span>：不少人愿意花时间看酒店、攻略和视频，并不希望被完全自动化。</p>
+        <br>
+        <p>所以旅行Agent没有大规模普及，并非再等一次模型升级就会自然解决，而是<span class="highlight">消费者价值本身可能没有想象中大</span>。</p>
+
+        <div class="section-title">五、由此得出的重要结论：OTA可能已经接近消费者产品的"稳定终局"</div>
+        <p>Booking、Expedia并不一定需要变成一个全新的物种。</p>
+        <p>类似超市、电商、搜索引擎，基本交互可以保持二十年：搜索—筛选—比较—购买。</p>
+        <p>它们下一步更像经营进化，而不是界面革命：</p>
+        <br>
+        <p><span class="highlight">1. 从单次交易转向会员经营</span></p>
+        <p>用会员价、积分、跨品类权益和售后保障，降低用户每次重新比价的意愿。</p>
+        <p>本质是把"哪里便宜就去哪里买"变成"差不多就继续在这个平台买"。</p>
+        <br>
+        <p><span class="highlight">2. 从酒店佣金扩展到旅游零售利润</span></p>
+        <p>增加：机票、租车、接送和门票；保险和价格保障；支付、汇兑和分期；广告和商家推广；企业差旅和B2B分销。</p>
+        <p>增长不一定来自新的消费者界面，而来自一位用户、一笔旅行产生更多收入。</p>
+        <br>
+        <p><span class="highlight">3. 从流量平台转向供应链控制</span></p>
+        <p>加强：独家价格；会员库存；实时确认；支付结算；商家运营工具；退款与赔付能力。</p>
+        <p>消费者仍然看到相似的酒店列表，但平台对交易的控制更深。</p>
+        <br>
+        <p><span class="highlight">4. 从B2C品牌转向旅游基础设施</span></p>
+        <p>特别是Expedia，可以把库存、预订、支付和售后提供给银行、航空公司、会员平台以及未来的AI入口。</p>
+        <p>即使用户从ChatGPT开始，最后调用的仍可能是Expedia的供给。</p>
+        <br>
+        <p><span class="highlight">5. 用AI降低内部成本</span></p>
+        <p>AI更确定的价值发生在用户看不见的地方：自动处理退改和航变；客服自动化；评论总结与违规识别；酒店信息维护；商家服务；营销素材生产；软件开发和内部运营。</p>
+        <p>这会改善利润率，但不会创造一种全新的OTA。</p>
+
+        <div class="section-title">六、真正可能改变OTA的不是LLM，而是"兴趣平台能否闭环交易"</div>
+        <p>抖音、小红书、YouTube对OTA的威胁比通用LLM更大，因为它们参与了需求形成。</p>
+        <p>但内容平台也有自己的结构性问题：</p>
+        <p>从种草到出行可能间隔数月；用户看内容时未必有明确日期和预算；酒店是标准商品，最终仍会跨平台比价；复杂售后与平台内容体验完全不同；交易需要库存、支付、客服和供应商治理。</p>
+        <br>
+        <p>所以最可能出现的不是内容平台全面取代OTA，而是重新分工：</p>
+        <p><span class="highlight">内容平台制造兴趣并获得广告收入；OTA承接搜索、价格比较、交易与履约。</span></p>
+        <p>部分流量入口会迁移，但OTA的交易层仍然稳定。</p>
+
+        <div class="section-title">七、对去哪儿的战略含义也要相应收缩</div>
+        <p>不应该把"旅行Agent"当成一个新的主航道。它更适合作为若干局部能力。</p>
+        <table style="width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.92rem;">
+            <tr>
+                <th style="background:#1e293b;color:#fff;padding:0.6rem 0.8rem;text-align:left;font-weight:600;">场景</th>
+                <th style="background:#1e293b;color:#fff;padding:0.6rem 0.8rem;text-align:left;font-weight:600;">AI价值</th>
+                <th style="background:#1e293b;color:#fff;padding:0.6rem 0.8rem;text-align:left;font-weight:600;">是否改变入口</th>
+            </tr>
+            <tr>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">行程灵感生成</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">有一点</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">很难</td>
+            </tr>
+            <tr>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">酒店自然语言搜索</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">有一点</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">很难</td>
+            </tr>
+            <tr>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">评论与差评总结</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">明确</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">不改变</td>
+            </tr>
+            <tr>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">低价差异解释</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">明确</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">不改变</td>
+            </tr>
+            <tr>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">退改、航变和投诉</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">很高</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">可能形成服务入口</td>
+            </tr>
+            <tr>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">客服与商家运营</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">很高</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">属于后台革命</td>
+            </tr>
+            <tr>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">多人多程复杂出行</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">较高</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">小众场景</td>
+            </tr>
+            <tr>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">普通酒店预订</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">很低</td>
+                <td style="padding:0.55rem 0.8rem;border-bottom:1px solid #eef2f6;">基本不改变</td>
+            </tr>
+        </table>
+        <p>去哪儿真正应该关注的不是"做不做一个旅行Agent"，而是三个更具体的问题：</p>
+        <p>内容平台种草后，如何让用户更自然地进入去哪儿完成比较；</p>
+        <p>如何继续强化地段、价格、时间和风险的选择效率；</p>
+        <p>如何用AI大幅降低交易后的履约成本。</p>
+
+        <div class="quote-block">
+            <p><strong>我的修正结论是：</strong></p>
+            <p>Booking、Expedia下一步未必是"变成什么"，而是继续成为<span class="highlight">更深、更赚钱、更自动化的OTA</span>。</p>
+            <p>前台仍然是地图、图片、价格和列表；后台逐渐变成高度自动化的供给、支付、广告和履约系统。</p>
+            <p>AI在这里大概率是一项类似移动化、云计算和推荐算法的基础技术：会改变成本和局部体验，却未必改变用户为什么打开OTA、怎样挑酒店以及最终为何下单。</p>
+        </div>
+
+    </div>
+
+    <!-- ===== 尾部信息 ===== -->
+    <div class="footer">
+        <div class="footer-meta">生成日期：2026-08-13</div>
+        <div class="footer-meta">来源：用户提供文本（初版判断 + 现实反驳 + 修正判断）</div>
+        <div class="footer-meta">本文为原文排版整理，未做内容改写</div>
+    </div>
+
+</div>
+</body>
+</html>

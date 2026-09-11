@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从 Sierra 看 AI Agent 平台：护城河在哪里</title>
+    <style>
+        /* ===== 基础重置 ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== 页面容器 ===== */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        /* ===== 文章头部 ===== */
+        .report-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .report-header h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+        .report-header .meta {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        /* ===== 引言 ===== */
+        .intro {
+            font-size: 1rem;
+            color: #475569;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===== 小节标题 ===== */
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        /* ===== 文章段落 ===== */
+        .article-block {
+            padding: 0.8rem 0 0.8rem 0.8rem;
+        }
+        .article-block p {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            color: #1e293b;
+            line-height: 1.9;
+        }
+        .article-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== 列表 ===== */
+        .article-block ul, .article-block ol {
+            margin: 0.3rem 0 0.5rem 1.4rem;
+            font-size: 1rem;
+            color: #1e293b;
+            line-height: 1.9;
+        }
+        .article-block li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* ===== 加粗要点 ===== */
+        .article-block strong {
+            color: #0f172a;
+        }
+
+        /* ===== 绿色高亮 ===== */
+        .highlight {
+            color: #16a34a;
+            font-weight: 500;
+        }
+
+        /* ===== 原始材料说明 ===== */
+        .source-note {
+            margin-top: 3rem;
+            padding: 1.2rem 1.5rem;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #64748b;
+            line-height: 1.7;
+        }
+        .source-note h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== 底部版权 ===== */
+        .footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 640px) {
+            .container { padding: 1.5rem 1rem 3rem; }
+            .report-header h1 { font-size: 1.3rem; }
+            .section-title { font-size: 1.05rem; }
+            .article-block p { font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ===== 文章头部 ===== -->
+    <div class="report-header">
+        <h1>从 Sierra 看 AI Agent 平台：护城河在哪里</h1>
+        <div class="meta">2026-08-08 · 来源：新录音 4.m4a</div>
+    </div>
+
+    <!-- ===== 引言 ===== -->
+    <div class="intro">
+        <p>最近看了 <span class="highlight">Sierra</span>、Intercom 等几家公司的产品，发现它们的愿景几乎一致：未来的工作都能由 Agent 完成——<span class="highlight">Agent Everything</span>。</p>
+    </div>
+
+    <!-- ===== 一 ===== -->
+    <div class="section-title">一、Agent 的三类形态</div>
+    <div class="article-block">
+        <ul>
+            <li><strong>个人助理</strong>：按你的想法帮你做各种事，WorkBuddy 就属于这一类。</li>
+            <li><strong>角色 / 流程 Agent</strong>：以完整工作流为基本单元，比如理赔流程、供应商签约流程。</li>
+            <li><strong>客户 Agent</strong>：面向客户提供服务，这是 Sierra 的核心。</li>
+        </ul>
+    </div>
+
+    <!-- ===== 二 ===== -->
+    <div class="section-title">二、Sierra 的商业模式：按结果付费</div>
+    <div class="article-block">
+        <p>Sierra 的创始人来头不小（Bret Taylor，前 Salesforce 联席 CEO）。它把商业模式定义为 <span class="highlight">Results as a Service</span>——按结果付费：客户 Agent 自动完成一次对话，收你 1 美元。</p>
+        <p>这与过去"按功能付费"的模式完全不同，是真正的结果交付。</p>
+    </div>
+
+    <!-- ===== 三 ===== -->
+    <div class="section-title">三、护城河在哪？</div>
+    <div class="article-block">
+        <p><strong>产品层面：没有。</strong>Agent 本质还是软件，区别只是过去用硬编码写，今天用自然语言写。Salesforce 里有大量 CRM、客服、内部管理工具，也没见产品本身构成壁垒。</p>
+        <p><strong>技术层面：有一些，但不高。</strong>模型层的准确率、速度、成本、多模态，早期门槛较高；Infrastructure 层管理 Agent 的 runtime 和生命周期，Decagon、Cyber 等都宣称自己很强；领域知识层并没有想象中了不起。技术门槛是阶段性的，大家做多了就熟悉了。</p>
+        <p><strong>真正的护城河是规模。</strong>过去是写代码，今天是写文本——<span class="highlight">文本即代码</span>。规模足够大时，沉淀在文本里的行业智能越来越多，下一个用户能学到的东西也越多，形成正反馈。这借鉴的是互联网平台的逻辑：规模越大，智能越强；而传统 SaaS 的功能迭代，天花板很低。</p>
+        <p>这也解释了为什么这些公司一出来就拼命融资、拉客户——和早期互联网平台先积累用户量是一个道理。</p>
+    </div>
+
+    <!-- ===== 四 ===== -->
+    <div class="section-title">四、未来会出现的两类平台</div>
+    <div class="article-block">
+        <ol>
+            <li><strong>消费型互联网平台</strong>：描述生产关系，消费者和商家都在上面（即今天的互联网平台）；</li>
+            <li><strong>交付型 AI 平台</strong>：像富士康一样，承接高效率的中低端交付，这些由 AI 平台来做。</li>
+        </ol>
+        <p>所以 Sierra、Decagon 这类公司的价值，绝不只是做客服或 CRM——它们看到的是下一代 AI 平台的格局，边界比 Salesforce 更大、更宽，可能就是新一代的"生产效率互联网平台"。</p>
+    </div>
+
+    <!-- ===== 原始材料说明 ===== -->
+    <div class="source-note">
+        <h3>📁 原始材料</h3>
+        <p>本文章由录音转写整理而成，未改动的原始转写文本与音频文件保存在 <code>raw/</code> 目录下。</p>
+    </div>
+
+    <!-- ===== 底部版权 ===== -->
+    <div class="footer">
+        Generated by voice2article · 2026-08-08
+    </div>
+
+</div>
+</body>
+</html>

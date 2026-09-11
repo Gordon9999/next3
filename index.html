@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>next3 · 文件列表</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+        .report-header {
+            text-align: center; margin-bottom: 2rem; padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .report-header h1 { font-size: 1.6rem; font-weight: 700; color: #0f172a; margin-bottom: 0.4rem; }
+        .report-header .subtitle { font-size: 0.9rem; color: #64748b; }
+        .report-header .meta { font-size: 0.8rem; color: #94a3b8; margin-top: 0.4rem; }
+        .card {
+            background: #fff; border: 1px solid #e2e8f0; border-radius: 8px;
+            padding: 0.9rem 1.2rem; margin-bottom: 0.6rem;
+            transition: border-color 0.15s;
+        }
+        .card:hover { border-color: #2563eb; }
+        .card a { color: #2563eb; text-decoration: none; font-size: 0.95rem; }
+        .card a:hover { text-decoration: underline; }
+        .card .title { font-size: 0.95rem; color: #0f172a; font-weight: 500; }
+        .card .filename { font-size: 0.78rem; color: #94a3b8; margin-top: 0.2rem; word-break: break-all; }
+        .card a:hover + .filename, .card:hover .filename { color: #2563eb; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="report-header">
+            <h1>next3</h1>
+            <div class="subtitle">AI Agent 研究 · 文件列表</div>
+            <div class="meta">静态快照 · 2026-09-11</div>
+        </div>
+
+        <div class="card">
+            <a href="will-agent-disrupt-saas.html"><span class="title">InsightView · AI Agent 是否会颠覆 SaaS</span></a>
+            <div class="filename">will-agent-disrupt-saas.html</div>
+        </div>
+
+        <div class="card">
+            <a href="ai-customer-service-agent-architecture.html"><span class="title">AI 客服 Agent 的三大工程：Intercom Fin AI 与 Decagon 的架构拆解</span></a>
+            <div class="filename">ai-customer-service-agent-architecture.html</div>
+        </div>
+
+        <div class="card">
+            <a href="sierra-ai-agent-platform.html"><span class="title">从 Sierra 看 AI Agent 平台：护城河在哪里</span></a>
+            <div class="filename">sierra-ai-agent-platform.html</div>
+        </div>
+
+        <div class="card">
+            <a href="travel-agent-not-ota-endgame.html"><span class="title">旅行 Agent 不是 OTA 的终局</span></a>
+            <div class="filename">travel-agent-not-ota-endgame.html</div>
+        </div>
+    </div>
+</body>
+</html>
