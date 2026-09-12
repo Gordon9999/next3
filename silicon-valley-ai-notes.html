@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>硅谷 AI 调研及业务落地分享会 · 2026.09.11</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+    background: #12161b;
+    color: #e6e9ef;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 3.5rem 1.5rem 5rem; }
+
+  /* ===== 头部 ===== */
+  .kicker {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7c8797;
+    margin-bottom: 0.9rem;
+  }
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #f2f4f8;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.6rem; }
+  .pill {
+    font-size: 0.74rem;
+    padding: 0.22rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid #2a3138;
+    background: #1a1f26;
+    color: #9aa5b4;
+  }
+  .meta { font-size: 0.8rem; color: #6f7a89; padding-bottom: 0; }
+
+  /* ===== 正文 ===== */
+  p { margin-bottom: 1.1rem; color: #d3d9e2; }
+
+  h2 {
+    font-size: 1.16rem;
+    font-weight: 700;
+    color: #f2f4f8;
+    margin: 3rem 0 1.1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #232a32;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: 650;
+    color: #e9edf3;
+    margin: 1.8rem 0 0.7rem;
+  }
+
+  strong { color: #f2f4f8; font-weight: 650; }
+
+  ul, ol { margin: 0 0 1.2rem 1.2rem; }
+  li { margin-bottom: 0.5rem; color: #d3d9e2; }
+
+  blockquote {
+    border-left: 2px solid #3d4753;
+    padding: 0.2rem 0 0.2rem 1.1rem;
+    margin: 1.4rem 0;
+    color: #aeb8c6;
+    font-size: 0.95rem;
+  }
+
+  /* ===== 公司卡 ===== */
+  .co {
+    border: 1px solid #232a32;
+    border-radius: 10px;
+    padding: 1.2rem 1.3rem;
+    margin: 1.3rem 0;
+    background: #161b21;
+  }
+  .co h3 { margin-top: 0; }
+  .co .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    color: #8b95a5;
+    border: 1px solid #2a3138;
+    border-radius: 4px;
+    padding: 0.1rem 0.45rem;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  /* ===== 表格 ===== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.4rem 0;
+    font-size: 0.88rem;
+  }
+  th, td {
+    border: 1px solid #232a32;
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    color: #c8cfd9;
+    vertical-align: top;
+  }
+  th { background: #1a1f26; color: #e9edf3; font-weight: 600; }
+
+  /* ===== 漏斗 ===== */
+  .funnel { margin: 1.4rem 0; }
+  .funnel div {
+    border: 1px solid #232a32;
+    background: #161b21;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.92rem;
+    color: #d3d9e2;
+  }
+  .funnel div span { color: #7c8797; font-size: 0.8rem; margin-right: 0.6rem; }
+
+  /* ===== 绿色高亮（my-writer 共享规范） ===== */
+  .highlight {
+    color: #16a34a;
+    font-weight: 600;
+  }
+
+  /* ===== 链接（暗色必须显式 color） ===== */
+  a { color: #9db4d8; text-decoration: none; }
+  a:visited { color: #9db4d8; }
+  a:hover { text-decoration: underline; }
+
+  /* ===== 序 ===== */
+  .preface {
+    margin: 2.4rem 0 0;
+  }
+  .preface-char {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #f2f4f8;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.9rem;
+  }
+  .preface p {
+    font-size: 1.02rem;
+    line-height: 1.95;
+    color: #c8cfd9;
+    margin: 0;
+  }
+
+  /* ===== 修改日志 ===== */
+  .changelog {
+    margin-top: 3.5rem;
+    padding-top: 1.3rem;
+    border-top: 1px solid #232a32;
+  }
+  .changelog h2 {
+    margin: 0 0 0.8rem;
+    padding: 0;
+    border: none;
+    font-size: 0.94rem;
+    font-weight: 650;
+    color: #c8cfd9;
+  }
+  .changelog ul { list-style: none; margin: 0; }
+  .changelog li {
+    font-size: 0.85rem;
+    color: #8b95a5;
+    margin-bottom: 0.35rem;
+  }
+  .changelog li .date { color: #6f7a89; margin-right: 0.4rem; }
+
+  .footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #232a32;
+    font-size: 0.78rem;
+    color: #6f7a89;
+  }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 2rem 1.1rem 3rem; }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.05rem; }
+    table { font-size: 0.82rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">硅谷调研 · 2026.09.11</div>
+  <h1>Agent 浪潮下，我们该自建还是外购</h1>
+  <div class="pills">
+    <span class="pill">Decagon</span>
+    <span class="pill">Sierra</span>
+    <span class="pill">Cresta</span>
+    <span class="pill">Wonderful</span>
+    <span class="pill">自建 vs 外购</span>
+    <span class="pill">AI To B</span>
+  </div>
+  <div class="meta">陈刚 · 2026 年 9 月 11 日 11:53–12:22 · 内部分享会整理</div>
+
+  <div class="preface">
+    <span class="preface-char">序</span>
+    <p>2026 年 9 月，陈刚花一周时间在硅谷，参加各类 AI 会议，见正在讨论、正在创业的人，并实地拜访了 Decagon、Sierra、Cresta 三家 AI 客服公司。此行有两个目的：一是感受今年硅谷 AI 创业的真实温度，二是回答一个具体问题——对我们自己的客服系统，究竟该自建、外购，还是混合。</p>
+  </div>
+
+  <h2>一、今年不一样了：<span class="highlight">Agent 的浪潮起来了</span></h2>
+
+  <p>花了一个星期在硅谷，参加各种 AI 的会，见正在讨论、正在创业的人。挺有意思。</p>
+
+  <p>今年硅谷的 AI 创业非常多样化。过去可能集中在大模型，今年有一个非常大的变化点，是 <strong>Agent 的浪潮起来了</strong>。去年底大模型突然有进展，今年年初 OpenClaw 的推广，让大家觉得 Agent 的实力非常强。</p>
+
+  <p>我 4 月份才试了一下。当时就觉得 coding 这块确实比较厉害。更关键的是，我觉得这个东西对我们的客服、对工作流相关的企业软件，是革命性的。所以准备立项去做。</p>
+
+  <p>但怎么开始，还有点想不清楚。正好 9 月份要去美国，就花点时间在硅谷拜访了三家公司：<strong>Decagon、Sierra、Cresta</strong>。</p>
+
+  <h2>二、三家公司，三种产品哲学</h2>
+
+  <div class="co">
+    <h3>Cresta<span class="tag">老牌 · 专业 · 贵</span></h3>
+    <p>Cresta 是非常老牌的公司，在客服软件里应该做得最专业，也挺贵。AI 客服自动化对它来说，只是其中一小块。</p>
+    <p>它背后的产品哲学是：客服很复杂。客户找过来，<span class="highlight">40% 的问题可以被自动化</span>，20% 的问题他就是来骂你的，得用人工承接，<span class="highlight">剩下 40% 是灰度的</span>。</p>
+    <p>他们认为，前面被自动解决的那 40%，实际上应该<strong><span class="highlight">反哺回产品</span></strong>——在产品的层面去改进根源，让用户根本不要来问。比如你预定过程中来问一个问题，那说明预定流程里信息展示得不够，这个本来就该做好，不该进客服环节。</p>
+    <p>这个思路当然是对的。但也正是这个思路，决定了它对 AI 客服 Chat 的定位：<strong>有必要，但重要度一般</strong>。Cresta 的产品战略还是定位在专业的人工 + 自动化客服 + 职能后台这些更垂直的领域。</p>
+  </div>
+
+  <div class="co">
+    <h3>Decagon<span class="tag">2024 成立 · AI native</span></h3>
+    <p>Decagon 是 24 年成立的公司，非常年轻，AI native。创始人可能也就 <span class="highlight">30 岁出头</span>，跟着 LLM 成长起来的一代。</p>
+    <p>他们认为 AI 客服自动化代表了一种<strong><span class="highlight">积木式软件的新领域</span></strong>。</p>
+    <p>过去我们讲一个企业软件，其实就两件事：</p>
+    <ol>
+      <li><strong>搜索</strong> —— 我问一个问题，你回答我。</li>
+      <li><strong>工作流</strong> —— 我提一个需求，你以工作流的方式帮我执行掉。</li>
+    </ol>
+    <p>拿机票来说。"今天的机票有午餐吗"是信息问题；"我今天走不了，帮我把票退掉"就是要执行一个工作流。</p>
+    <p>既然 AI 客服能把这两件事都办成，那从 AI 客服变成 AI 驱动的客户中心，收入层面可以做，售前咨询、售后都可以做，再加上后面的工作流。</p>
+    <p>再往外看，企业内部的信息化——过去讲的 OA，财务、HR、IT 桌面支持——其实都是同一个领域。这个市场份额非常大，因为服务的是内部的人。所以他们就往这个方向走了，你可以理解为<strong><span class="highlight">企业的内部通用软件</span></strong>。</p>
+  </div>
+
+  <div class="co">
+    <h3>Sierra<span class="tag">Salesforce 系 · 架构拉满</span></h3>
+    <p>Sierra 和 Decagon 的定位完全一样。区别在创始人。</p>
+    <p>Sierra 的创始人是以前 Salesforce 的高管，CEO、CTO 出来做的这家公司。目标一样，但 Sierra 起步就把技术架构拉得非常大——没有我不能做的事情。</p>
+    <p>确实没有你不能做的事。但对于大多数企业来说，我跟你合作做什么呢？其实还是拿 AI 客服作为切入点。</p>
+  </div>
+
+  <h3>聚焦 vs 拉满：两周 vs 一年</h3>
+
+  <p>所以我的判断是：<strong>Decagon 在产品的聚焦度、在实施周期上会更快</strong>。Decagon 的创始人自己也讲过，一个大客户跟 Sierra 合作，周期很长，可能一年也做不了几个场景。而 Decagon 类似的产品，大概<span class="highlight">两周左右就能上线</span>。</p>
+
+  <p>当然，上线周期还是跟每家客户的信息化能力、SOP 的清晰度有关，跟 Decagon 和 Sierra 本身关系不那么大。</p>
+
+  <table>
+    <tr><th></th><th>Cresta</th><th>Decagon</th><th>Sierra</th></tr>
+    <tr><td>成立</td><td>老牌</td><td>2024</td><td>2023</td></tr>
+    <tr><td>AI 客服定位</td><td>其中一小块</td><td>唯一聚焦点</td><td>切入点</td></tr>
+    <tr><td>终局设想</td><td>反哺产品根源</td><td>企业内部通用软件</td><td>什么都能做</td></tr>
+    <tr><td>实施周期</td><td>—</td><td>约两周</td><td>一年做不了几个场景</td></tr>
+    <tr><td>创始人</td><td>专业派</td><td>30 岁出头 AI 原生</td><td>Salesforce 前 CEO/CTO</td></tr>
+  </table>
+
+  <h3>还有个 Wonderful</h3>
+
+  <p>最近出了个新公司叫 Wonderful，跟 Decagon 应该是一码事，但它把这个故事讲得更圆：我就是要做企业内部的通用软件，因为我的多层技术栈已经支持了搜索和工作流执行，大部分内部软件就这两件事。</p>
+
+  <p>那我就不停地做实施，FDE 工程做完，再优化我的积木式基础软件，这样搭新系统就很快。</p>
+
+  <p>我认为 Decagon、Wonderful 的定位未来会涨得比较快。看起来产品门槛没那么高，但只要你真想做成产品化、商业化，还是有很多工程级别的事情要做。这个领域会有非常多的创业者，不管欧洲还是亚洲。成立于 <span class="highlight">2024 / 25 / 26</span> 这三年的创业公司，可以算作 Agent 公司的创业窗口期。</p>
+
+  <h2>三、自建还是外购：漏斗式混合</h2>
+
+  <p>出发前我有个非常明确的问题：对这样的客服系统，我们是<strong>自建、购买，还是混合</strong>？</p>
+
+  <p>我们是以 Trip 的名义去沟通的。结论是：这些公司很乐意卖给 Trip，但是 <span class="highlight">Ctrip 没法用</span>。对中国市场，中国政府和美国政府都会严格限制，属于讨论的禁区。</p>
+
+  <p>所以国内市场肯定跟国外是脱节的。这意味着，<strong>自建不管多难都一定要做</strong>，否则国内就没法用。海外可以先用。这是一个混合模式。</p>
+
+  <h3>为什么会有这个问题</h3>
+
+  <p>自建 AI Agent 的应用，现在是<strong><span class="highlight">吹得多，应用做得少</span></strong>。</p>
+
+  <p>做个 demo，单模型的、单流程的、自己用的，都很容易做出来。但非常多的复杂流程、非常多的多样性客户，还有成本问题、速度问题，用多少个模型、用一大堆小模型来解决具体场景问题——这都是很复杂的技术栈。而 <span class="highlight">context 管理、memory 管理</span>都是新领域，经验十分重要。</p>
+
+  <p>还有数据安全问题，用开源模型还是闭源 API。在海外，这些领域又宽又深，infra 解决方案做得非常好，你能想到的每个领域都有专业的公司在做。但你国内能不能用，或者说用了代价够不够，扛不扛得住用美元计算的 ROI，都是很现实的问题。</p>
+
+  <p>以我们现在投入一二十个人做一个客服自动化系统，我不确定能做到什么程度。所以在比较长的时间内，<strong><span class="highlight">自建和外购应该长期混合</span></strong>。</p>
+
+  <h3>漏斗设计</h3>
+
+  <div class="funnel">
+    <div><span>01</span>用户端咨询进来，先上<strong>自建系统</strong></div>
+    <div><span>02</span>自建系统解决不了要转人工了，再转<strong>外购系统</strong></div>
+    <div><span>03</span>外购还解决不了，再转<strong>人工</strong></div>
+  </div>
+
+  <p>这样漏斗下来，体验可能会差一些，但成本和持续改进会更好。而且你不会把自己的系统像 SaaS 一样深度捆绑到某一家上——Decagon 做得好我就用 Decagon，其他都是比较容易切换的。</p>
+
+  <h2>四、ARR 的泡沫：切换成本变低了</h2>
+
+  <p>这跟以前不一样。你上 CRM、上 ERP，Oracle、SAP、Salesforce、Workday 的 HR 系统，都很难切换。</p>
+
+  <p>所以商业模式跟过去肯定是不一样的：它让商家很容易用，但忠诚度低。用 ARR 来算的话水分比较大。SaaS 企业的 ARR 周期比较确定，只要企业不倒，一般不会换。但 AI 客服，包括未来很多 AI 软件，<strong><span class="highlight">用户切换成本是比较低的</span></strong>。</p>
+
+  <h2>五、旧金山的氛围：像 2013 年</h2>
+
+  <p>这次还有一个非常大的收获，就是见到了非常多的创业者。</p>
+
+  <p>来的人老中青三代都在创业。老一点的像我们这样四五十岁的，包括 Sierra 那些 60 年代末、70 年代初的人；还有一些还在读大学的。这次创业新人的背景都非常硬，基本都是非常好的大学，藤校比例非常高。创业人群的基本面是很好的。</p>
+
+  <p>大家表达一个观点：<strong>非常热</strong>。整个旧金山市区，尤其 Agent 创业这块。大模型创业门槛很高，但 Agent 相关的创业，又回到了移动互联网时代——我只要有个很好的 idea，就可以去做。</p>
+
+  <p>如果不去创业，这些年轻人觉得是对不起这个时代的。为什么？</p>
+
+  <ul>
+    <li><strong>一是氛围。</strong>创业需要氛围，我的朋友们都在创业，他也在创业，这种氛围很容易让人上头，觉得这是一种理想主义，不只是钱的问题。</li>
+    <li><strong>二是钱。</strong>现在 AI 人才都很贵，但不管你是创业还是去大公司上班，都能拿很多钱。既然这样，我为什么不去搏一下、做点不一样的事情？</li>
+  </ul>
+
+  <p>整个旧金山的氛围非常热闹，强度非常大，非常像我们当时 2013 年的高度。</p>
+
+  <blockquote>你今天去看很多项目，以一个老登的角度会觉得，这项目不值得做，肯定会死掉。这很正常。创业气氛很浓的时候，肯定有泡沫，也有很好的项目。对同一个团队来说，泡沫就是他交的学费——他会从一个泡沫切换成另一个很务实的东西。</blockquote>
+
+  <h2>六、中美市场的结构差异</h2>
+
+  <p>这件事会形成一个完整的体系：技术栈从 AI Agent 应用，到 infra，到大模型、开源模型，到云、到硬件。</p>
+
+  <p>因为光是 AI 客服、AI 企业软件这一件事，就已经有<span class="highlight">几百亿、上千亿</span>的预期市场规模。这是美国市场给出的非常大的利好，一个非常大的 To B 市场。</p>
+
+  <p>但最终总要有人买单。今天 Sierra、Decagon 的实施成本都很大，<span class="highlight">去年 100 个人，今年可能就要 700 人，年底到 1000 人</span>。这么贵的人，<span class="highlight">每个客户不付个百万美元是养不活的</span>。</p>
+
+  <p>所以美国公司的结构是<strong><span class="highlight">纺锤型</span></strong>——大量的中型公司，中型、大型、小型公司都愿意付钱，都有很强的 To B 付费能力。这也是过去他们为什么有这么大的 To B SaaS 市场。</p>
+
+  <p><strong>而中国从来没有这样一个市场。</strong></p>
+
+  <p>过去还有很多原因可以解释：人太穷、管理水平太低、工程师成本也很低、卖软件大家不愿付费。</p>
+
+  <p>但到今天这个时候，我觉得中日韩都特别像。不管你是社会主义国家还是资本主义国家，反正中日韩都变成了<strong>巨头型企业 + 小微型企业的<span class="highlight">哑铃型、K 型结构</span></strong>。</p>
+
+  <p>中国很典型：国央企，加互联网平台，这是大企业。每个行业都有头部，但非常少。酒店行业里就是华住这样两三家做得非常大，剩下的都是很小的单体，或者几十家企业依托平台生存。</p>
+
+  <h3>这么一个 K 型结构，谁愿意付费？</h3>
+
+  <ul>
+    <li><strong>国央企</strong>：有需求，但付费有问题。没钱，而且跟他们打交道现金流会有很大问题。</li>
+    <li><strong>平台企业</strong>：自己做。</li>
+  </ul>
+
+  <p>所以在未来 AI To B 的市场里，<strong>"谁付费"这个问题还是绕不开 SaaS 那个死结</strong>。中国既然没产生过 SaaS，同样道理，To B 的付费市场也不会太好。</p>
+
+  <p>没有人 To B 付费，那谁愿意去做 infrastructure？谁愿意在 infrastructure 里再投入大模型？</p>
+
+  <p>今天大模型的投入纯粹是还没想清楚的事。但起码美国想清楚了——大模型是有出路的，大不了出口 token。美国人卖一个美金一个 token，那我卖一个人民币一个 token。大模型本身还是有一些市场的。</p>
+
+  <p>但从应用的市场上讲，想做中国的企业，跟当年中国和美国都是非常庞大的 C 端市场比，就不是一码事了。所以我对中国的 AI To B 市场其实<strong>不太看好</strong>。可以创业，但不太看好。因为人很贵，收到的收入很少，再加上投资人现在基本也不投了——上一轮投 SaaS 的钱都打水漂了。</p>
+
+  <h3>这对我们的挑战</h3>
+
+  <p>这种现状下，像我们这样有需求的人，今天要做一个 To B 的应用，哪怕只是给自己用：</p>
+
+  <ul>
+    <li><strong>第一，infrastructure 我没有</strong>，必须要用美国的。</li>
+    <li><strong>第二，人才我也没有</strong>。没人创业了，大公司也没有，软件公司都没有。</li>
+  </ul>
+
+  <p>你想想看，2011 年左右，中国的移动互联网哪里有技术？中国的技术来自哪里？来自当时的微软研究院，来自雅虎在中国——雅虎刚好又卖掉了，技术就出来了。还有 12、13 年的时候，中国企业大量引进硅谷的华人，把他们抓回来做技术高管、产品高管、运营高管。这才是移动互联网的人才基础。只要人回来了，所有东西都回来。</p>
+
+  <p>但现在你去硅谷讲，谁回来？美国人不希望我们去，中国政府也不希望我们去。<strong><span class="highlight">人才的流动和资金的流动都卡死了</span></strong>，这是一个很糟糕的事情。</p>
+
+  <p>所以我们国内的应用市场挑战很大：需求是存在的，但需求的付费、技术的成熟度，可能是非常大的挑战。</p>
+
+  <h2>七、技术判断：绕不开的重装化</h2>
+
+  <p>多说一句 infrastructure 这件事。你要把客服这个东西做好——你可能觉得这东西挺简单，国内三五个人、十个人创业就能做。确实能做。</p>
+
+  <p>但你要把它<strong>做好</strong>，去看一下 Decagon 的整个技术栈，我觉得他们需要一个 <span class="highlight">50 到 100 人</span>的核心工程师团队。一层一层下来：</p>
+
+  <ul>
+    <li><strong>Context / Memory</strong>：你自己往里塞东西当然没问题，但越来越大、越来越多样化的时候，smart context 怎么做？memory 怎么管？</li>
+    <li><strong>推理</strong>：用什么样的推理？用什么样的模型？</li>
+    <li><strong>RAG</strong>：本身就是一个非常宽、经常在变化的技术。</li>
+  </ul>
+
+  <p>很多技术做 demo 很容易，但一旦要用到很好的成本、要竞争，那每一块深入下来都非常大。</p>
+
+  <p>这就是美国很强的地方：大公司在做，做出一个应用案例以后，内部的人就出来创业，把曾经用到的某一块功能做成基建。所以美国有非常多像 <span class="highlight">Fireworks</span> 这样的公司，专门做推理的，还有专门做上下文管理的。这些基建公司估值都是百亿、千亿级的。</p>
+
+  <p>这些我也不懂，说不清楚。但只要我们开始做 AI 客服、AI 软件的产品化，<strong>这些东西都绕不开</strong>。</p>
+
+  <p>就算跟美国的软件比：美国是重装化的、非常先进的软件架构，我们可能只能做一个单模型——就跟我们今天做一个 WorkBuddy 里的 Skill 一样，非常薄的一层东西。这东西既不值钱，它的成本、宽度、深度肯定都有问题，产品化肯定有很大问题。</p>
+
+  <p>尤其是像我们每天有<span class="highlight">十几万、几十万</span>的进线量，滴滴、美团都是几十万进线量。<strong>这个产品一定要达到产品化的标准，你才能拿出来用。</strong>技术的事情应该花比较多的时间去想。</p>
+
+  <h3>技术栈缺失怎么办</h3>
+
+  <p>完全靠自我摸索行不行？行。但别人在用系统级的、生态级的方式解决问题，你就用小米加步枪，那不就相当于——别人在做 DOS，你做 <span class="highlight">UCDOS</span>；别人在做 Windows，你就做不了了。</p>
+
+  <p>别人做 DOS 的时候，你还可以做一个优秀 DOS。当别人做 Windows 的时候，整个中国的软件产业就崩掉了，你只能做 Windows，什么都做不了。</p>
+
+  <p>当前阶段我们也考虑不了整个软件生态，也不会去做软件创业。但<strong>我们自己怎么办</strong>？</p>
+
+  <h2>八、团队怎么搭：<span class="highlight">洋教头</span> + 留学生</h2>
+
+  <p>我觉得今天的局面跟 2012 年很不一样，只能参考大清朝当年的开放办法：<strong>引入一些洋教头</strong>。</p>
+
+  <p>这个洋教头不长在你国内，他就在旧金山——你就在旧金山开个办公室，把人引进来。兼职也好，全职也好。然后国内的员工去旧金山出差，每次来一个月，和洋教头现场交流学习：我们现在的技术架构是怎么样的？我们的最佳实践是怎么样的？这里面哪些技术架构应该怎么用？</p>
+
+  <p>就跟留学生一样，送到硅谷去。把我们的年轻人送出去做一个专项项目，目标非常明确的项目。</p>
+
+  <p>只有这样，我们才能跟硅谷最先进的生态有联系，才能知道那边发生了什么事情。</p>
+
+  <p>因为我想不出更好的办法。你说我到那里搭个实验室，重新招一堆人——用创新的方法做事肯定不行的。现在人才都缺乏，谁愿意到你这儿来做一个海外分支的外包研发中心？不会的。</p>
+
+  <p>但洋教头加上留学生，这个方法我觉得是可以做的，就像北洋水师。</p>
+
+  <h2>九、<span class="highlight">躬身入局</span>：做 AI 项目的制片人</h2>
+
+  <p>最后检讨一下自己。AI 发展得很快，有个笑话叫"你今年如果没学，也不用学了，因为明年又有新的"。确实是这样。从 DeepSeek 到 Agent，到 OpenClaw，到现在 WorkBuddy，变化确实非常快。</p>
+
+  <p>我过去的想法是：OK，我在关注产品，关注商业模式，关注它是不是跟我们平台的战略有关系。剩下的东西我不用学，因为那是纯技术的东西。</p>
+
+  <p><strong>但今天的问题是，如果你不懂 AI 的技术架构，你其实就无法做判断。</strong>你不知道这个东西能帮你做什么，也不知道它会影响到什么。这会让认知发生比较大的差异。</p>
+
+  <p>举个例子：Cresta 的产品哲学和 Decagon 的产品哲学，谁对谁错？没有对错，但它们是不同的。当你对 AI 的技术不了解的时候，认知就更加不同了。</p>
+
+  <p>所以我今天肯定不能说"我来做一个 AI 产品经理"。那你现在就变成一个投资人了——不懂，只能看，觉得这个人好像不错，最终只能等产品出来以后才能判断。这就比较滞后了，认知就比较低了。</p>
+
+  <p><strong>我们还是要以"AI 项目的制片人"的角色进来。</strong></p>
+
+  <p>既然是制片人，你就得懂。你不一定要会写代码，但你得懂：每个技术栈大概是咋回事？有哪些人在提供什么样的服务？它为什么要提供这样的服务？</p>
+
+  <p>你要从产品架构上理解这件事，这样才能跟 AI 团队讨论，跟他们一起确定产品形态往哪个方向走、要投多少钱。因为最终还是<strong>制片人说了算</strong>。</p>
+
+  <p>如果把这个决策下放，问题就大了：第一，你确实就变成投资人角色了。第二，通常今天作为制片人角色，水平都是很高的。当你下放的时候，下面的人要么太年轻没经验，要么本来就不如你——他可能比你更年轻、学东西更快，但做这些很大的商业化决定时，他就是不如你。</p>
+
+  <p>所以最好的还是你自己<strong>躬身入局</strong>，自己来做最终决策：这个产品要做到什么方向，大的版本路线图应该怎么样，要投多大的资金。</p>
+
+  <blockquote>这实际上就是制片人——跟好莱坞的制片人一样：要不要做这个主题？超人系列还要不要做？要投多大资金？你可以不去做导演，不去做演员，但你必须要做制片。</blockquote>
+
+  <div class="changelog">
+    <h2>修改日志</h2>
+    <ul>
+      <li><span class="date">2026.09.11</span>硅谷 AI 客服调研总结，陈刚</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    硅谷 AI 调研及业务落地分享会 · 2026.09.11 · 内部整理稿
+  </div>
+
+</div>
+</body>
+</html>
